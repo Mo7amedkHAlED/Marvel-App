@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="DetailsCollectionViewCell" reuseIdentifier="DetailsCollectionViewCell" id="Ko9-ml-vJL" customClass="DetailsCollectionViewCell" customModule="MARVEL_APP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="169"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="169"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rw6-lo-Yp7">
+                        <rect key="frame" x="8" y="8" width="164" height="153"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Iro_Man" translatesAutoresizingMaskIntoConstraints="NO" id="7Vn-hr-lSf">
+                                <rect key="frame" x="0.0" y="0.0" width="164" height="126.33333333333333"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3js-Yj-zfN">
+                                <rect key="frame" x="0.0" y="126.33333333333336" width="164" height="26.666666666666671"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.77647060160000003" green="0.78039217000000005" blue="0.78823530669999997" alpha="0.9745680702416919" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7Vn-hr-lSf" firstAttribute="width" secondItem="rw6-lo-Yp7" secondAttribute="width" id="49k-Nu-oRE"/>
+                            <constraint firstAttribute="trailing" secondItem="7Vn-hr-lSf" secondAttribute="trailing" id="AgE-cD-Vu3"/>
+                            <constraint firstItem="3js-Yj-zfN" firstAttribute="leading" secondItem="rw6-lo-Yp7" secondAttribute="leading" id="Dig-Ql-80x"/>
+                            <constraint firstItem="3js-Yj-zfN" firstAttribute="top" secondItem="7Vn-hr-lSf" secondAttribute="bottom" id="X0z-4y-kwT"/>
+                            <constraint firstAttribute="bottom" secondItem="3js-Yj-zfN" secondAttribute="bottom" id="XK8-ZG-Ns6"/>
+                            <constraint firstItem="7Vn-hr-lSf" firstAttribute="leading" secondItem="rw6-lo-Yp7" secondAttribute="leading" id="b7z-mD-VU3"/>
+                            <constraint firstItem="7Vn-hr-lSf" firstAttribute="height" secondItem="rw6-lo-Yp7" secondAttribute="height" multiplier="0.825806" id="h9b-3X-bB8"/>
+                            <constraint firstAttribute="trailing" secondItem="3js-Yj-zfN" secondAttribute="trailing" id="igA-x3-TfY"/>
+                            <constraint firstItem="7Vn-hr-lSf" firstAttribute="top" secondItem="rw6-lo-Yp7" secondAttribute="top" id="ukt-Pp-uxx"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="BVv-o6-kNg"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="rw6-lo-Yp7" secondAttribute="trailing" constant="8" id="JaX-Sx-FLd"/>
+                <constraint firstItem="rw6-lo-Yp7" firstAttribute="leading" secondItem="Ko9-ml-vJL" secondAttribute="leading" constant="8" id="aYv-Rh-CB3"/>
+                <constraint firstItem="rw6-lo-Yp7" firstAttribute="top" secondItem="Ko9-ml-vJL" secondAttribute="top" constant="8" id="dSX-mP-kGA"/>
+                <constraint firstAttribute="bottom" secondItem="rw6-lo-Yp7" secondAttribute="bottom" constant="8" id="jAb-Is-3JE"/>
+            </constraints>
+            <size key="customSize" width="180" height="169"/>
+            <connections>
+                <outlet property="CharcterImage" destination="7Vn-hr-lSf" id="b93-0Y-IEu"/>
+                <outlet property="CharcterLabel" destination="3js-Yj-zfN" id="Dp2-Np-LjM"/>
+            </connections>
+            <point key="canvasLocation" x="633.84615384615381" y="-27.369668246445496"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Iro_Man" width="1080" height="1920"/>
+    </resources>
+</document>

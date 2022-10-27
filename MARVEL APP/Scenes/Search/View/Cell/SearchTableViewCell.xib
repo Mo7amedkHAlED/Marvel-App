@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchTableViewCell" rowHeight="126" id="KGk-i7-Jjw" customClass="SearchTableViewCell" customModule="MARVEL_APP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="372" height="126"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="372" height="126"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XnW-Gv-Xuc" customClass="CardView" customModule="MARVEL_APP" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="115"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Iro_Man" translatesAutoresizingMaskIntoConstraints="NO" id="5ku-Lg-adi" customClass="CardUiImage" customModule="MARVEL_APP" customModuleProvider="target">
+                                <rect key="frame" x="8" y="8" width="92" height="99"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfT-7o-vQg">
+                                <rect key="frame" x="108" y="8" width="256" height="99"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1058823466" green="0.1058823466" blue="0.1058823466" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="5ku-Lg-adi" secondAttribute="bottom" constant="8" id="4cH-VF-e8U"/>
+                            <constraint firstAttribute="bottom" secondItem="cfT-7o-vQg" secondAttribute="bottom" constant="8" id="G9n-Hw-f2B"/>
+                            <constraint firstItem="5ku-Lg-adi" firstAttribute="width" secondItem="XnW-Gv-Xuc" secondAttribute="width" multiplier="0.247312" id="Ise-Og-nHe"/>
+                            <constraint firstItem="5ku-Lg-adi" firstAttribute="top" secondItem="XnW-Gv-Xuc" secondAttribute="top" constant="8" id="JKj-4X-5A3"/>
+                            <constraint firstItem="5ku-Lg-adi" firstAttribute="leading" secondItem="XnW-Gv-Xuc" secondAttribute="leading" constant="8" id="MeG-DQ-x8I"/>
+                            <constraint firstAttribute="trailing" secondItem="cfT-7o-vQg" secondAttribute="trailing" constant="8" id="VEx-bF-k6U"/>
+                            <constraint firstItem="cfT-7o-vQg" firstAttribute="top" secondItem="XnW-Gv-Xuc" secondAttribute="top" constant="8" id="Vke-Kq-H5c"/>
+                            <constraint firstItem="cfT-7o-vQg" firstAttribute="leading" secondItem="5ku-Lg-adi" secondAttribute="trailing" constant="8" id="sY3-tZ-4bj"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="XnW-Gv-Xuc" secondAttribute="bottom" constant="11" id="agY-Kb-euH"/>
+                    <constraint firstItem="XnW-Gv-Xuc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="cL4-KY-zfa"/>
+                    <constraint firstAttribute="trailing" secondItem="XnW-Gv-Xuc" secondAttribute="trailing" id="hww-88-c8n"/>
+                    <constraint firstItem="XnW-Gv-Xuc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="txd-Vl-qoB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="saerchImage" destination="5ku-Lg-adi" id="QJg-oy-DQi"/>
+                <outlet property="searchLabel" destination="cfT-7o-vQg" id="96O-22-HXa"/>
+            </connections>
+            <point key="canvasLocation" x="76.92307692307692" y="49.763033175355446"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Iro_Man" width="1080" height="1920"/>
+    </resources>
+</document>

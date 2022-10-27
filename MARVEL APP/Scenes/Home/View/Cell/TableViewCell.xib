@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="TableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" rowHeight="128" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="MARVEL_APP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fx-F0-YD6" customClass="CardView" customModule="MARVEL_APP" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="118"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Iro_Man" translatesAutoresizingMaskIntoConstraints="NO" id="6nJ-Wd-akP" customClass="CardUiImage" customModule="MARVEL_APP" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="118"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5BQ-82-fUS" customClass="CardView" customModule="MARVEL_APP" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="79.5" width="320" height="38.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haX-jy-AaL">
+                                        <rect key="frame" x="8" y="8" width="304" height="29"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.34087046827794559" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="haX-jy-AaL" secondAttribute="bottom" constant="1.5" id="Goo-zW-KLG"/>
+                                    <constraint firstItem="haX-jy-AaL" firstAttribute="leading" secondItem="5BQ-82-fUS" secondAttribute="leading" constant="8" id="ZNt-9y-LYF"/>
+                                    <constraint firstAttribute="trailing" secondItem="haX-jy-AaL" secondAttribute="trailing" constant="8" id="mC6-al-lEU"/>
+                                    <constraint firstItem="haX-jy-AaL" firstAttribute="top" secondItem="5BQ-82-fUS" secondAttribute="top" constant="8" id="uRz-Vu-Qjp"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="6nJ-Wd-akP" secondAttribute="bottom" id="2jo-AX-Hig"/>
+                            <constraint firstItem="6nJ-Wd-akP" firstAttribute="top" secondItem="2fx-F0-YD6" secondAttribute="top" id="CPE-BF-50o"/>
+                            <constraint firstItem="5BQ-82-fUS" firstAttribute="leading" secondItem="2fx-F0-YD6" secondAttribute="leading" id="Eqb-zf-8Dg"/>
+                            <constraint firstAttribute="trailing" secondItem="5BQ-82-fUS" secondAttribute="trailing" id="aOE-FA-4vj"/>
+                            <constraint firstAttribute="bottom" secondItem="5BQ-82-fUS" secondAttribute="bottom" id="f82-ln-i5i"/>
+                            <constraint firstAttribute="trailing" secondItem="6nJ-Wd-akP" secondAttribute="trailing" id="sUm-5m-zun"/>
+                            <constraint firstItem="6nJ-Wd-akP" firstAttribute="leading" secondItem="2fx-F0-YD6" secondAttribute="leading" id="vay-Up-I2h"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="2fx-F0-YD6" secondAttribute="trailing" id="6aO-WD-dG7"/>
+                    <constraint firstItem="2fx-F0-YD6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Wwz-Mf-ufo"/>
+                    <constraint firstItem="2fx-F0-YD6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="f5h-E7-Z2B"/>
+                    <constraint firstAttribute="bottom" secondItem="2fx-F0-YD6" secondAttribute="bottom" constant="10" id="rue-jz-Qbu"/>
+                </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
+                        <real key="value" value="10"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="Tableimage" destination="6nJ-Wd-akP" id="LmJ-8L-2zE"/>
+                <outlet property="View" destination="5BQ-82-fUS" id="esi-Ey-Iai"/>
+                <outlet property="characterName" destination="haX-jy-AaL" id="EDI-3Z-Hv0"/>
+                <outlet property="view1" destination="2fx-F0-YD6" id="pdh-qv-Uip"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="85.714285714285708"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Iro_Man" width="1080" height="1920"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

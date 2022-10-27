@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="MARVEL_APP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="guK-yg-ax2">
+                                <rect key="frame" x="8" y="119" width="412" height="773"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0WK-GN-dd8" customClass="CardView" customModule="MARVEL_APP" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="111"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Marvel_Studios" translatesAutoresizingMaskIntoConstraints="NO" id="TjT-rV-ZsG">
+                                        <rect key="frame" x="118" y="47" width="192" height="44"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwW-sJ-e8c">
+                                        <rect key="frame" x="345" y="54" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="rbb-ti-RhC"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.8078432083" green="0.0" blue="0.14458908479999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                        <connections>
+                                            <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WyE-cB-nsK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1058823466" green="0.1058823466" blue="0.1058823466" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="TjT-rV-ZsG" firstAttribute="top" secondItem="0WK-GN-dd8" secondAttribute="top" constant="47" id="4lx-J1-yEU"/>
+                                    <constraint firstAttribute="bottom" secondItem="TjT-rV-ZsG" secondAttribute="bottom" constant="20" id="5tJ-XR-LJ7"/>
+                                    <constraint firstItem="TjT-rV-ZsG" firstAttribute="centerY" secondItem="lwW-sJ-e8c" secondAttribute="centerY" id="EqC-Zh-2zb"/>
+                                    <constraint firstAttribute="trailing" secondItem="lwW-sJ-e8c" secondAttribute="trailing" constant="37" id="FHj-SA-JXS"/>
+                                    <constraint firstItem="TjT-rV-ZsG" firstAttribute="centerX" secondItem="0WK-GN-dd8" secondAttribute="centerX" id="IH3-hr-ZXJ"/>
+                                    <constraint firstItem="lwW-sJ-e8c" firstAttribute="top" secondItem="0WK-GN-dd8" secondAttribute="top" constant="54" id="SE0-vM-UyK"/>
+                                    <constraint firstItem="lwW-sJ-e8c" firstAttribute="leading" secondItem="TjT-rV-ZsG" secondAttribute="trailing" constant="35" id="zfU-jL-Kfg"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLeft" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="topLeft" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="topRight" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="bottomRight" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allCorners" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0WK-GN-dd8" firstAttribute="centerX" secondItem="guK-yg-ax2" secondAttribute="centerX" id="2iZ-ph-JuO"/>
+                            <constraint firstItem="0WK-GN-dd8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6mj-eT-IsP"/>
+                            <constraint firstItem="0WK-GN-dd8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8F2-MK-rkY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="guK-yg-ax2" secondAttribute="trailing" constant="8" id="Nob-mo-4P8"/>
+                            <constraint firstAttribute="bottom" secondItem="0WK-GN-dd8" secondAttribute="bottom" constant="815" id="QJe-Ej-dgm"/>
+                            <constraint firstItem="guK-yg-ax2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="QpW-7e-7Ja"/>
+                            <constraint firstItem="guK-yg-ax2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Xgx-lL-bSL"/>
+                            <constraint firstItem="guK-yg-ax2" firstAttribute="top" secondItem="0WK-GN-dd8" secondAttribute="bottom" constant="8" id="eBw-cJ-MRE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="TableView" destination="guK-yg-ax2" id="Ta0-yi-4kR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="257.94392523364485" y="103.02375809935207"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Marvel_Studios" width="2560" height="572"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
