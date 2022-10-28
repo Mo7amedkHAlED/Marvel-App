@@ -8,18 +8,16 @@
 import UIKit
 
 class SearchTableViewCell: UITableViewCell {
-    @IBOutlet weak var saerchImage: UIImageView!
     
+    // MARK: - Outlets
+    //
+    @IBOutlet weak var saerchImage: UIImageView!
     @IBOutlet weak var searchLabel: UILabel!
+    
+    // MARK: - Life Cycle
+    //
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

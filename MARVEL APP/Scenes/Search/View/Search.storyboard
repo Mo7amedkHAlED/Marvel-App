@@ -16,6 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTA-Jf-8Z1">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fcZ-Oy-sbj">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <blurEffect style="systemThinMaterial"/>
+                            </visualEffectView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kQa-0I-aI7">
                                 <rect key="frame" x="8" y="8" width="304" height="56"/>
                                 <subviews>
@@ -35,7 +44,6 @@
                                     </searchBar>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6u-QM-XFv">
                                         <rect key="frame" x="230" y="0.0" width="74" height="56"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="cancel"/>
                                         <connections>
@@ -44,6 +52,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FbL-p9-80w">
                                 <rect key="frame" x="8" y="72" width="304" height="496"/>
@@ -55,15 +64,20 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="1" green="0.53725492949999998" blue="0.55686277149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="FbL-p9-80w" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="0vc-D9-PvC"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FbL-p9-80w" secondAttribute="trailing" constant="8" id="314-6Q-jX8"/>
+                            <constraint firstItem="YTA-Jf-8Z1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="BdS-oJ-qC5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kQa-0I-aI7" secondAttribute="trailing" constant="8" id="MQ7-V6-A94"/>
+                            <constraint firstItem="YTA-Jf-8Z1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="RIV-Ax-dzk"/>
                             <constraint firstItem="kQa-0I-aI7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="aHu-Gf-JMu"/>
                             <constraint firstAttribute="bottom" secondItem="FbL-p9-80w" secondAttribute="bottom" id="fqE-TV-T7y"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YTA-Jf-8Z1" secondAttribute="trailing" id="m4j-yI-48F"/>
                             <constraint firstItem="kQa-0I-aI7" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="tkr-GL-wHa"/>
                             <constraint firstItem="FbL-p9-80w" firstAttribute="top" secondItem="kQa-0I-aI7" secondAttribute="bottom" constant="8" id="w2v-ys-MUg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="YTA-Jf-8Z1" secondAttribute="bottom" id="wEc-PA-xqd"/>
                         </constraints>
                     </view>
                     <connections>
@@ -74,7 +88,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="g6r-zq-jOh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="120.28985507246378" y="-3.3482142857142856"/>
+            <point key="canvasLocation" x="120" y="-4.225352112676056"/>
         </scene>
     </scenes>
 </document>

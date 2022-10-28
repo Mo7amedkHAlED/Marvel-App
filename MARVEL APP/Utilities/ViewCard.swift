@@ -21,12 +21,21 @@ class CardView: UIView {
 class CardUiImage: UIImageView {
     
     @IBInspectable var cornerrRadius: CGFloat = 8
-     
-    override func layoutSubviews() {
-  layer.cornerRadius = cornerrRadius
-        
-  }
     
+    override func layoutSubviews() {
+        layer.cornerRadius = cornerrRadius
+        
+    }
+}
+
+    class CardEffectView : UIVisualEffectView {
+        
+        @IBInspectable var cornerrRadius: CGFloat = 8
+         
+        override func layoutSubviews() {
+      layer.cornerRadius = cornerrRadius
+            
+      }
 }
 
 class CardViewUISearchBar: UISearchBar {

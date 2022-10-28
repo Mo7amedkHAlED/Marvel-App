@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,6 +32,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5BQ-82-fUS" customClass="CardView" customModule="MARVEL_APP" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="79.5" width="320" height="38.5"/>
                                 <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZH-gi-PZj">
+                                        <rect key="frame" x="0.0" y="-0.5" width="320" height="39"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yOB-6V-7XE">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="systemChromeMaterial"/>
+                                    </visualEffectView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haX-jy-AaL">
                                         <rect key="frame" x="8" y="8" width="304" height="29"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
@@ -38,12 +47,15 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.34087046827794559" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="haX-jy-AaL" secondAttribute="bottom" constant="1.5" id="Goo-zW-KLG"/>
+                                    <constraint firstAttribute="trailing" secondItem="CZH-gi-PZj" secondAttribute="trailing" id="SP8-Ht-OJW"/>
                                     <constraint firstItem="haX-jy-AaL" firstAttribute="leading" secondItem="5BQ-82-fUS" secondAttribute="leading" constant="8" id="ZNt-9y-LYF"/>
+                                    <constraint firstItem="CZH-gi-PZj" firstAttribute="leading" secondItem="5BQ-82-fUS" secondAttribute="leading" id="a45-GF-AaB"/>
                                     <constraint firstAttribute="trailing" secondItem="haX-jy-AaL" secondAttribute="trailing" constant="8" id="mC6-al-lEU"/>
+                                    <constraint firstAttribute="bottom" secondItem="CZH-gi-PZj" secondAttribute="bottom" id="p7w-S3-2Ha"/>
                                     <constraint firstItem="haX-jy-AaL" firstAttribute="top" secondItem="5BQ-82-fUS" secondAttribute="top" constant="8" id="uRz-Vu-Qjp"/>
+                                    <constraint firstItem="CZH-gi-PZj" firstAttribute="height" secondItem="5BQ-82-fUS" secondAttribute="height" multiplier="1.01299" id="yIG-2T-Q3i"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
@@ -85,6 +97,7 @@
             <connections>
                 <outlet property="Tableimage" destination="6nJ-Wd-akP" id="LmJ-8L-2zE"/>
                 <outlet property="View" destination="5BQ-82-fUS" id="esi-Ey-Iai"/>
+                <outlet property="blurView" destination="CZH-gi-PZj" id="xcK-Lx-SLq"/>
                 <outlet property="characterName" destination="haX-jy-AaL" id="EDI-3Z-Hv0"/>
                 <outlet property="view1" destination="2fx-F0-YD6" id="pdh-qv-Uip"/>
             </connections>

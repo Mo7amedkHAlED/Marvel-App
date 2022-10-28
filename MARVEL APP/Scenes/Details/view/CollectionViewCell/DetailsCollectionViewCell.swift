@@ -9,6 +9,8 @@ import UIKit
 
 class DetailsCollectionViewCell: UICollectionViewCell {
 
+    // MARK: - OutLets
+    //
     @IBOutlet weak var CharcterLabel: UILabel!
     @IBOutlet weak var CharcterImage: UIImageView!
     override func awakeFromNib() {
