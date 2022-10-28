@@ -26,7 +26,6 @@ class HomeViewController: UIViewController {
     // MARK: - Life Cycle
         super.viewDidLoad()
         
-//        TableView.prefetchDataSource = self
         setUpCharaacter()
         registerCollectionView()
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "Marvel"))
@@ -142,13 +141,3 @@ extension HomeViewController : TableView {
     }
     
 }
-//// MARK: - Create Extension UITableViewDataSourcePrefetching
-//extension HomeViewController : UITableViewDataSourcePrefetching{
-//
-//    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-//        for indexPath in indexPaths {
-//            let dataInRow = charactersArray[indexPath.row]
-//        }
-//    }
-//
-//}

@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XnW-Gv-Xuc" customClass="CardView" customModule="MARVEL_APP" customModuleProvider="target">
                         <rect key="frame" x="8" y="0.0" width="356" height="115"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Iro_Man" translatesAutoresizingMaskIntoConstraints="NO" id="5ku-Lg-adi" customClass="CardUiImage" customModule="MARVEL_APP" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Iro_Man" translatesAutoresizingMaskIntoConstraints="NO" id="5ku-Lg-adi">
                                 <rect key="frame" x="0.0" y="0.0" width="88" height="115"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
@@ -48,11 +48,12 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
-                                <real key="value" value="10"/>
+                                <real key="value" value="20"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="XnW-Gv-Xuc" secondAttribute="bottom" constant="11" id="agY-Kb-euH"/>
                     <constraint firstItem="XnW-Gv-Xuc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="cL4-KY-zfa"/>
@@ -61,6 +62,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="saerchImage" destination="5ku-Lg-adi" id="QJg-oy-DQi"/>
                 <outlet property="searchLabel" destination="cfT-7o-vQg" id="96O-22-HXa"/>

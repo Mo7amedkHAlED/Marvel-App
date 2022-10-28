@@ -19,5 +19,8 @@ class SearchTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        saerchImage.layer.cornerRadius = 15
+        saerchImage.clipsToBounds = true
+        saerchImage.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
     }
 }

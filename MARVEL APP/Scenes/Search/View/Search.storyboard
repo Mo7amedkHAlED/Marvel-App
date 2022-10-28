@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait" appearance="dark"/>
+    <device id="retina6_5" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
@@ -13,71 +13,84 @@
             <objects>
                 <viewController storyboardIdentifier="SearchViewController" id="Y6W-OH-hqX" customClass="SearchViewController" customModule="MARVEL_APP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Iro_Man" translatesAutoresizingMaskIntoConstraints="NO" id="F2W-NB-4ow">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTA-Jf-8Z1">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fcZ-Oy-sbj">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQa-0I-aI7">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                            <subviews>
+                                                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Yxa-kE-oaI" customClass="CardViewUISearchBar" customModule="MARVEL_APP" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="331.33333333333331" height="56"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Y6W-OH-hqX" id="uXL-QV-zv5"/>
+                                                    </connections>
+                                                </searchBar>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6u-QM-XFv">
+                                                    <rect key="frame" x="331.33333333333331" y="0.0" width="82.666666666666686" height="56"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="cancel"/>
+                                                    <connections>
+                                                        <action selector="CancelButton:" destination="g6r-zq-jOh" eventType="touchUpInside" id="1Iy-kk-o5x"/>
+                                                        <action selector="CancelButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PKV-Vk-NKV"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.109803915" green="0.109803915" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </stackView>
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FbL-p9-80w">
+                                            <rect key="frame" x="0.0" y="64" width="414" height="754"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="Y6W-OH-hqX" id="Aov-SV-nNX"/>
+                                                <outlet property="delegate" destination="Y6W-OH-hqX" id="fZO-j9-qMH"/>
+                                            </connections>
+                                        </tableView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="FbL-p9-80w" firstAttribute="leading" secondItem="fcZ-Oy-sbj" secondAttribute="leading" id="5oi-Aq-cvA"/>
+                                        <constraint firstItem="kQa-0I-aI7" firstAttribute="top" secondItem="fcZ-Oy-sbj" secondAttribute="top" id="KhK-0h-WgM"/>
+                                        <constraint firstAttribute="trailing" secondItem="FbL-p9-80w" secondAttribute="trailing" id="NDQ-Am-hHy"/>
+                                        <constraint firstAttribute="trailing" secondItem="kQa-0I-aI7" secondAttribute="trailing" id="hWB-8g-FIo"/>
+                                        <constraint firstAttribute="bottom" secondItem="FbL-p9-80w" secondAttribute="bottom" id="nHp-jr-chB"/>
+                                        <constraint firstItem="FbL-p9-80w" firstAttribute="top" secondItem="kQa-0I-aI7" secondAttribute="bottom" constant="8" id="nvC-2a-Yc0"/>
+                                        <constraint firstItem="kQa-0I-aI7" firstAttribute="leading" secondItem="fcZ-Oy-sbj" secondAttribute="leading" id="usV-Sr-yMd"/>
+                                    </constraints>
                                 </view>
-                                <blurEffect style="systemThinMaterial"/>
+                                <blurEffect style="systemUltraThinMaterialDark"/>
                             </visualEffectView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kQa-0I-aI7">
-                                <rect key="frame" x="8" y="8" width="304" height="56"/>
-                                <subviews>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Yxa-kE-oaI" customClass="CardViewUISearchBar" customModule="MARVEL_APP" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="222" height="56"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="uXL-QV-zv5"/>
-                                        </connections>
-                                    </searchBar>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6u-QM-XFv">
-                                        <rect key="frame" x="230" y="0.0" width="74" height="56"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="cancel"/>
-                                        <connections>
-                                            <action selector="CancelButton:" destination="g6r-zq-jOh" eventType="touchUpInside" id="1Iy-kk-o5x"/>
-                                            <action selector="CancelButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PKV-Vk-NKV"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FbL-p9-80w">
-                                <rect key="frame" x="8" y="72" width="304" height="496"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="Aov-SV-nNX"/>
-                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="fZO-j9-qMH"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="1" green="0.53725492949999998" blue="0.55686277149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="FbL-p9-80w" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="0vc-D9-PvC"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FbL-p9-80w" secondAttribute="trailing" constant="8" id="314-6Q-jX8"/>
+                            <constraint firstItem="F2W-NB-4ow" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="0c9-Ff-FR5"/>
+                            <constraint firstItem="F2W-NB-4ow" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="0gH-LU-fdQ"/>
                             <constraint firstItem="YTA-Jf-8Z1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="BdS-oJ-qC5"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kQa-0I-aI7" secondAttribute="trailing" constant="8" id="MQ7-V6-A94"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="F2W-NB-4ow" secondAttribute="bottom" id="LGs-5e-gYj"/>
                             <constraint firstItem="YTA-Jf-8Z1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="RIV-Ax-dzk"/>
-                            <constraint firstItem="kQa-0I-aI7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="aHu-Gf-JMu"/>
-                            <constraint firstAttribute="bottom" secondItem="FbL-p9-80w" secondAttribute="bottom" id="fqE-TV-T7y"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YTA-Jf-8Z1" secondAttribute="trailing" id="m4j-yI-48F"/>
-                            <constraint firstItem="kQa-0I-aI7" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="tkr-GL-wHa"/>
-                            <constraint firstItem="FbL-p9-80w" firstAttribute="top" secondItem="kQa-0I-aI7" secondAttribute="bottom" constant="8" id="w2v-ys-MUg"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="YTA-Jf-8Z1" secondAttribute="bottom" id="wEc-PA-xqd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="F2W-NB-4ow" secondAttribute="trailing" id="xgH-Gi-lPP"/>
                         </constraints>
                     </view>
                     <connections>
@@ -85,10 +98,13 @@
                         <outlet property="searchTableView" destination="FbL-p9-80w" id="nj5-rJ-Pds"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="g6r-zq-jOh" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120" y="-4.225352112676056"/>
+            <point key="canvasLocation" x="118.84057971014494" y="-4.6875"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Iro_Man" width="1080" height="1920"/>
+    </resources>
 </document>
