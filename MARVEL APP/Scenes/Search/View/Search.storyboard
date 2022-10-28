@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_5" orientation="portrait" appearance="dark"/>
+    <device id="retina4_0" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
@@ -13,56 +13,57 @@
             <objects>
                 <viewController storyboardIdentifier="SearchViewController" id="Y6W-OH-hqX" customClass="SearchViewController" customModule="MARVEL_APP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Yxa-kE-oaI" customClass="CardViewUISearchBar" customModule="MARVEL_APP" customModuleProvider="target">
-                                <rect key="frame" x="8" y="52" width="316" height="56"/>
-                                <color key="barTintColor" red="0.1058823466" green="0.1058823466" blue="0.1058823466" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="uXL-QV-zv5"/>
-                                </connections>
-                            </searchBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kQa-0I-aI7">
+                                <rect key="frame" x="8" y="8" width="304" height="56"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Yxa-kE-oaI" customClass="CardViewUISearchBar" customModule="MARVEL_APP" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="222" height="56"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="uXL-QV-zv5"/>
+                                        </connections>
+                                    </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6u-QM-XFv">
+                                        <rect key="frame" x="230" y="0.0" width="74" height="56"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="cancel"/>
+                                        <connections>
+                                            <action selector="CancelButton:" destination="g6r-zq-jOh" eventType="touchUpInside" id="1Iy-kk-o5x"/>
+                                            <action selector="CancelButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PKV-Vk-NKV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FbL-p9-80w">
-                                <rect key="frame" x="8" y="116" width="398" height="780"/>
+                                <rect key="frame" x="8" y="72" width="304" height="496"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="Aov-SV-nNX"/>
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="fZO-j9-qMH"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6u-QM-XFv">
-                                <rect key="frame" x="332" y="52" width="74" height="56"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="cancel"/>
-                                <connections>
-                                    <action selector="CancelButton:" destination="g6r-zq-jOh" eventType="touchUpInside" id="1Iy-kk-o5x"/>
-                                    <action selector="CancelButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PKV-Vk-NKV"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="1" green="0.53725492949999998" blue="0.55686277149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="FbL-p9-80w" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="0vc-D9-PvC"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FbL-p9-80w" secondAttribute="trailing" constant="8" id="314-6Q-jX8"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="q6u-QM-XFv" secondAttribute="trailing" constant="8" id="6dM-V4-DXN"/>
-                            <constraint firstItem="Yxa-kE-oaI" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="BNB-e6-6SM"/>
-                            <constraint firstItem="q6u-QM-XFv" firstAttribute="top" secondItem="Yxa-kE-oaI" secondAttribute="top" id="Dtm-oh-PXO"/>
-                            <constraint firstItem="FbL-p9-80w" firstAttribute="top" secondItem="Yxa-kE-oaI" secondAttribute="bottom" constant="8" id="Hee-yc-fNX"/>
-                            <constraint firstItem="Yxa-kE-oaI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="ScF-t6-vLk"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kQa-0I-aI7" secondAttribute="trailing" constant="8" id="MQ7-V6-A94"/>
+                            <constraint firstItem="kQa-0I-aI7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="aHu-Gf-JMu"/>
                             <constraint firstAttribute="bottom" secondItem="FbL-p9-80w" secondAttribute="bottom" id="fqE-TV-T7y"/>
-                            <constraint firstItem="q6u-QM-XFv" firstAttribute="leading" secondItem="Yxa-kE-oaI" secondAttribute="trailing" constant="8" id="hw0-Uh-OiM"/>
-                            <constraint firstItem="q6u-QM-XFv" firstAttribute="bottom" secondItem="Yxa-kE-oaI" secondAttribute="bottom" id="kgD-Hl-gaB"/>
+                            <constraint firstItem="kQa-0I-aI7" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="tkr-GL-wHa"/>
+                            <constraint firstItem="FbL-p9-80w" firstAttribute="top" secondItem="kQa-0I-aI7" secondAttribute="bottom" constant="8" id="w2v-ys-MUg"/>
                         </constraints>
                     </view>
                     <connections>

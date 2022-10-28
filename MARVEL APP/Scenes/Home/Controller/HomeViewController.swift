@@ -29,30 +29,30 @@ class HomeViewController: UIViewController {
     
     func setUpCharaacter(){
         ChaArry = [
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man")
+            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
+            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
+            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
+            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
+            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
+            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
+            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
+            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
+            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
+            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
+            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
+            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
+            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
+            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
+            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
+            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
+            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
+            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
+            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
+            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
+            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
+            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
+            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
+            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App ")
         ]
     }
     func registerCollectionView(){
@@ -65,7 +65,8 @@ class HomeViewController: UIViewController {
     @IBAction func searchButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Search", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SearchViewController")
-        vc.modalPresentationStyle = .overFullScreen
+        vc.modalPresentationStyle = .currentContext
+        self.definesPresentationContext = true
         present(vc, animated: true)
 
     }
@@ -77,6 +78,15 @@ class HomeViewController: UIViewController {
 extension HomeViewController : TableView { 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ChaArry.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            
+        let storyboard = UIStoryboard(name: "Details", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        vc.ChaArry = ChaArry[indexPath.row]
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

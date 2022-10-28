@@ -14,46 +14,20 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var SeriesCollectionView: UICollectionView!
     @IBOutlet weak var EventCollectionView: UICollectionView!
     @IBOutlet weak var CharacterName: UILabel!
+    @IBOutlet weak var DesLabel: UILabel!
     @IBOutlet weak var DetailsImage: UIImageView!
     
-    var ChaArry : [MarvelHome] = []
+    var ChaArry  : MarvelHome?
     let images: [UIImage] = [UIImage(named: "Iro_Man")!,UIImage(named: "Marvel1")!,UIImage(named: "Spaider_Man1")!,UIImage(named: "Iro_Man")!,UIImage(named: "Marvel1")!,UIImage(named: "Spaider_Man1")!]
     let names: [String] = [" Iro_Man", "Spaider_Man", "Iro_Man"," Iro_Man", "Spaider_Man", "Iro_Man"," Iro_Man", "Spaider_Man", "Iro_Man"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpCharaacter()
         registerCollectionView()
+        CharacterName.text = ChaArry?.text
+        DetailsImage.image = UIImage(named: ChaArry?.image ?? " ")
+        DesLabel.text = ChaArry?.des
         
     }
-    func setUpCharaacter(){
-        ChaArry = [
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man")
-        ]
-    }
-    
     func registerCollectionView(){
         ComiceCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
         ComiceCollectionView.delegate = self

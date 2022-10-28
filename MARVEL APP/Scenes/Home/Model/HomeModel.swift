@@ -11,9 +11,11 @@ import UIKit
 class MarvelHome{
     let image: String
     let text : String
-    
-    init(image: String, text: String) {
+    var des: String
+
+    init(image: String, text: String, des : String ) {
         self.image = image
         self.text = text
+        self.des = des
     }
 }

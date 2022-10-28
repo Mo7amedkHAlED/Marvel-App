@@ -23,30 +23,30 @@ class SearchViewController: UIViewController {
     
     func setUpCharaacter(){
         ChaArry2 = [
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man"),
-            .init(image:"Iro_Man", text: "Iro_Man"),
-            .init(image:"Marvel1",text: "Marvel"),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man")
+            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
+            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
+            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
+            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
+            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
+            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
+            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
+            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
+            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
+            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
+            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
+            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
+            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
+            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
+            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
+            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
+            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
+            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
+            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
+            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
+            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
+            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
+            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
+            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App ")
         ]
         currentCha = ChaArry2
     }
@@ -70,7 +70,8 @@ extension SearchViewController : TableView {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let storyboard = UIStoryboard(name: "Details", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController")
+        let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        vc.ChaArry = currentCha[indexPath.row]
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true)
     }
@@ -87,12 +88,13 @@ extension SearchViewController : TableView {
         }
         
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 160
+            return 100
         }
 }
 
 extension SearchViewController : UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        currentCha = ChaArry2.filter({ $0.text.contains(searchText) })
         searchTableView.reloadData()
        }
 }
