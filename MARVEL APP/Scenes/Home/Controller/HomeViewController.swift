@@ -15,7 +15,6 @@ class HomeViewController: UIViewController {
     // MARK: - Vars
     var charactersArray: [MarvelHome] = []
     private var images : [String] = []
-    override var prefersStatusBarHidden: Bool{return true}
     
     // MARK: - Pagination Vars
         var charactersPerPages = 10
