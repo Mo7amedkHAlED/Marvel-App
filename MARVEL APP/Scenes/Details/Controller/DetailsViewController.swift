@@ -22,7 +22,7 @@ class DetailsViewController: UIViewController {
     
     // MARK: - Vars
     //
-    var ChaArry  : MarvelHome?
+    var ChaArry  : Character?
     let images: [UIImage] = [
         UIImage(named: "Iro_Man")!, UIImage(named: "Marvel1")!,
         UIImage(named: "Spaider_Man1")!, UIImage(named: "Iro_Man")!,
@@ -41,9 +41,13 @@ class DetailsViewController: UIViewController {
         BackButton.layer.cornerRadius = 20
         BackButton.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
         registerCollectionView()
-        CharacterName.text = ChaArry?.text
-        DetailsImage.image = UIImage(named: ChaArry?.image ?? " ")
-        DesLabel.text = ChaArry?.des
+        CharacterName.text = ChaArry?.name
+        var characterimage = ChaArry?.thumbnail.path ?? " "
+        characterimage += ".jpg"
+        DetailsImage.kf.setImage(with: URL(string: "\(characterimage)"))
+        guard let descriptionText = ChaArry?.description else {return}
+        DesLabel.text = descriptionText
+        print(ChaArry?.description)
         
     }
     // MARK: - Configure CollectionView

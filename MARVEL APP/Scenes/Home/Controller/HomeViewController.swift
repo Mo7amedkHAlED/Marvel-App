@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import CryptoKit
+import Alamofire
+import Kingfisher
+import ProgressHUD
 
 class HomeViewController: UIViewController {
     
@@ -13,60 +17,59 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var TableView: UITableView!
     
     // MARK: - Vars
-    var charactersArray: [MarvelHome] = []
+    var charactersArray: [Character] = []
     private var images : [String] = []
     
     // MARK: - Pagination Vars
         var charactersPerPages = 10
         var limit = 10
-        var paginationCharacters: [MarvelHome] = []
+        var paginationCharacters: [Character] = []
         
+    //
+    var publicKey = "01973c54d87ab24faec3795d522b42b1"
+    var privateKey = "b79e717f216cf6b9f154732ed97c1b69bd8586f8"
     override func viewDidLoad() {
     // MARK: - Life Cycle
         super.viewDidLoad()
-        
-        setUpCharaacter()
+        setUpCharaacter1()
         registerCollectionView()
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "Marvel"))
         
         
     }
-    
-    // MARK: - INIT NEW ELEMENT IN ARRAY
-    func setUpCharaacter(){
-        charactersArray = [
-            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
-            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
-            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
-            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
-            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
-            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
-            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
-            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
-            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
-            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
-            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
-            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
-            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
-            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App "),
-            .init(image:"Iro_Man", text: "Iro_Man", des: "Hello IN Marvel App "),
-            .init(image:"Marvel1",text: "Marvel", des: "Hello IN Marvel App "),
-            .init(image:"Spaider_Man1" , text: "Spaider_Man", des: "Hello IN Marvel App ")
-        ]
-        limit = charactersArray.count
-        for i in 0 ..< 10{
-            paginationCharacters.append(charactersArray[i])
+      
+    // MARK: - Fetching Data From Api
+    func setUpCharaacter1(){
+        let ts = String(Date().timeIntervalSince1970)
+        let hash = MD5(string: "\(ts)\(privateKey)\(publicKey)")
+        guard let url =  URL(string: "https://gateway.marvel.com:443/v1/public/characters?limit=100&ts=\(ts)&hash=\(hash)&apikey=\(publicKey)") else { return}
+        ProgressHUD.show()
+        AF.request(url, method: .get,encoding: JSONEncoding.default).responseDecodable(of: APIResult.self) { [self] respone in
+            switch respone.result{
+            case.success(let character):
+                self.charactersArray = character.data.results
+                self.limit = self.charactersArray.count ?? 100
+                for i in 0 ..< 10{
+                    paginationCharacters.append(self.charactersArray[i])
+                }
+                self.TableView.reloadData()
+                ProgressHUD.showSucceed()
+            case.failure(let error):
+                print(error.localizedDescription)
+                ProgressHUD.showError()
+
+            }
         }
     }
-    
-    // MARK: - Get Pagination Characters
+    func MD5(string: String) -> String {
+        let digest = Insecure.MD5.hash(data: string.data(using: .utf8) ?? Data())
+
+        return digest.map {
+            String(format: "%02hhx", $0)
+        }.joined()
+        
+    }
+     //MARK: - Get Pagination Characters
     func setPaginationCharacters(charactersPerPages: Int){
         if charactersPerPages >= limit{
             return
@@ -110,6 +113,7 @@ extension HomeViewController : TableView {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return paginationCharacters.count
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -123,8 +127,11 @@ extension HomeViewController : TableView {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = TableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        cell.characterName.text = paginationCharacters[indexPath.row].text
-        cell.Tableimage.image = UIImage(named: paginationCharacters[indexPath.row].image)
+        let characterName = paginationCharacters[indexPath.row].name
+        cell.characterName.text = characterName
+        var characterimage = paginationCharacters[indexPath.row].thumbnail.path
+        characterimage += ".jpg"
+        cell.Tableimage.kf.setImage(with: URL(string: "\(characterimage)"))
         return cell
     }
     
