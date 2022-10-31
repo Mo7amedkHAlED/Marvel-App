@@ -8,7 +8,7 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-    @IBOutlet weak var Tableimage: UIImageView!
+    @IBOutlet weak var characterHomeImage: UIImageView!
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var View: UIView!
     @IBOutlet weak var blurView: UIVisualEffectView!

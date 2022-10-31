@@ -23,7 +23,6 @@ class HomeViewController: UIViewController {
     // MARK: - Pagination Vars
         var charactersPerPages = 10
         var limit = 10
-        var paginationCharacters: [Character] = []
         
     //
     var publicKey = "01973c54d87ab24faec3795d522b42b1"
@@ -31,7 +30,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
     // MARK: - Life Cycle
         super.viewDidLoad()
-        setUpCharaacter1()
+        fetchApiCharacterData(limit: limit)
         registerCollectionView()
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "Marvel"))
         
@@ -39,21 +38,19 @@ class HomeViewController: UIViewController {
     }
       
     // MARK: - Fetching Data From Api
-    func setUpCharaacter1(){
+    func fetchApiCharacterData(limit: Int){
         let ts = String(Date().timeIntervalSince1970)
         let hash = MD5(string: "\(ts)\(privateKey)\(publicKey)")
-        guard let url =  URL(string: "https://gateway.marvel.com:443/v1/public/characters?limit=100&ts=\(ts)&hash=\(hash)&apikey=\(publicKey)") else { return}
+        guard let url =  URL(string: "https://gateway.marvel.com:443/v1/public/characters?limit=\(limit)&ts=\(ts)&hash=\(hash)&apikey=\(publicKey)") else { return}
         ProgressHUD.show()
         AF.request(url, method: .get,encoding: JSONEncoding.default).responseDecodable(of: APIResult.self) { [self] respone in
             switch respone.result{
             case.success(let character):
                 self.charactersArray = character.data.results
-                self.limit = self.charactersArray.count ?? 100
-                for i in 0 ..< 10{
-                    paginationCharacters.append(self.charactersArray[i])
-                }
+                self.limit += 10
+//                }
                 self.TableView.reloadData()
-                ProgressHUD.showSucceed()
+                ProgressHUD.dismiss()
             case.failure(let error):
                 print(error.localizedDescription)
                 ProgressHUD.showError()
@@ -61,6 +58,7 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    //MARK: - Get MD5 Method
     func MD5(string: String) -> String {
         let digest = Insecure.MD5.hash(data: string.data(using: .utf8) ?? Data())
 
@@ -68,27 +66,6 @@ class HomeViewController: UIViewController {
             String(format: "%02hhx", $0)
         }.joined()
         
-    }
-     //MARK: - Get Pagination Characters
-    func setPaginationCharacters(charactersPerPages: Int){
-        if charactersPerPages >= limit{
-            return
-        }
-        else if charactersPerPages >= limit - 10{
-            for i in charactersPerPages ..< limit{
-                paginationCharacters.append(charactersArray[i])
-            }
-            self.charactersPerPages += 10
-        }
-        else{
-            for i in charactersPerPages ..< charactersPerPages + 10{
-                paginationCharacters.append(charactersArray[i])
-            }
-            self.charactersPerPages += 10
-        }
-        DispatchQueue.main.async {
-            self.TableView.reloadData()
-        }
     }
     
     // MARK: - Configure CollectionView
@@ -112,7 +89,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController : TableView {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return paginationCharacters.count
+        return charactersArray.count
         
     }
     
@@ -127,11 +104,11 @@ extension HomeViewController : TableView {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = TableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        let characterName = paginationCharacters[indexPath.row].name
+        let characterName = charactersArray[indexPath.row].name
         cell.characterName.text = characterName
-        var characterimage = paginationCharacters[indexPath.row].thumbnail.path
+        var characterimage = charactersArray[indexPath.row].thumbnail.path
         characterimage += ".jpg"
-        cell.Tableimage.kf.setImage(with: URL(string: "\(characterimage)"))
+        cell.characterHomeImage.kf.setImage(with: URL(string: "\(characterimage)"))
         return cell
     }
     
@@ -140,8 +117,10 @@ extension HomeViewController : TableView {
     }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView == TableView {
-            if (scrollView.contentOffset.y + scrollView.frame.size.height) >= (scrollView.contentSize.height){
-             setPaginationCharacters(charactersPerPages: charactersPerPages)
+            if limit <= 100{
+                if (scrollView.contentOffset.y + scrollView.frame.size.height) >= (scrollView.contentSize.height){
+                    fetchApiCharacterData(limit: limit)
+                }
             }
         }
     }
