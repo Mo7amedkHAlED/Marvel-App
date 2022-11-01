@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -30,10 +28,10 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5BQ-82-fUS" customClass="CardView" customModule="MARVEL_APP" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="79.5" width="320" height="38.5"/>
+                                <rect key="frame" x="0.0" y="79.666666666666671" width="320" height="38.333333333333329"/>
                                 <subviews>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZH-gi-PZj">
-                                        <rect key="frame" x="0.0" y="-0.5" width="320" height="39"/>
+                                        <rect key="frame" x="0.0" y="-0.6666666666666714" width="320" height="39"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yOB-6V-7XE">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,9 +93,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="Tableimage" destination="6nJ-Wd-akP" id="LmJ-8L-2zE"/>
                 <outlet property="View" destination="5BQ-82-fUS" id="esi-Ey-Iai"/>
                 <outlet property="blurView" destination="CZH-gi-PZj" id="xcK-Lx-SLq"/>
+                <outlet property="characterHomeImage" destination="6nJ-Wd-akP" id="LmJ-8L-2zE"/>
                 <outlet property="characterName" destination="haX-jy-AaL" id="EDI-3Z-Hv0"/>
                 <outlet property="view1" destination="2fx-F0-YD6" id="pdh-qv-Uip"/>
             </connections>
