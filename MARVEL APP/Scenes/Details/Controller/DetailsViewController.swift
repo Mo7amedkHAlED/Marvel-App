@@ -114,13 +114,12 @@ class DetailsViewController: UIViewController {
         
     }
     @IBAction func favoriteButton(_ sender: UIButton) {
-        var isFav = chaArry?.inFavorites ?? false
+        let isFav = chaArry?.inFavorites ?? false
         self.chaArry?.inFavorites = !isFav
         ChangeFavoriteButtonImage()
         //MARK: - to create NotificationCenter (post)
         guard let favoriteCharacter = chaArry?.inFavorites else { return }
         guard let characterId = chaArry?.id else { return }
-        guard let characterImage = chaArry?.thumbnail.path else { return }
         let userInfo : [String:Any] = ["id": characterId, "isFav": favoriteCharacter]
         NotificationCenter.default.post(name: Notification.Name("didTappedFavoriteButton"), object: nil,userInfo: userInfo)
 
