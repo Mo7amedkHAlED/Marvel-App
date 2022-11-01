@@ -10,6 +10,7 @@
 		7F0391BB290EC036009D02E8 /* ExUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0391BA290EC036009D02E8 /* ExUIImageView.swift */; };
 		7F04CD2E2909DFDA00AB3D1A /* DetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F04CD2C2909DFDA00AB3D1A /* DetailsCollectionViewCell.swift */; };
 		7F04CD2F2909DFDA00AB3D1A /* DetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F04CD2D2909DFDA00AB3D1A /* DetailsCollectionViewCell.xib */; };
+		7F24E6D329106F7000497B27 /* favouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F24E6D229106F7000497B27 /* favouriteViewController.swift */; };
 		7F6BFA182909957600204314 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F6BFA172909957600204314 /* Details.storyboard */; };
 		7F6BFA1A2909959F00204314 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6BFA192909959F00204314 /* DetailsViewController.swift */; };
 		7F899A0B29080B720038BAE6 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F899A0A29080B720038BAE6 /* HomeModel.swift */; };
@@ -23,6 +24,7 @@
 		7F95983929080088005DAD83 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F95983729080088005DAD83 /* Home.storyboard */; };
 		7F95983B29080089005DAD83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F95983A29080089005DAD83 /* Assets.xcassets */; };
 		7F95983E29080089005DAD83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F95983C29080089005DAD83 /* LaunchScreen.storyboard */; };
+		7FE9E0B4290FDC870018AB5A /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE9E0B3290FDC870018AB5A /* CollectionViewModel.swift */; };
 		7FEA04CF29096F6F008334FF /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FEA04CE29096F6F008334FF /* Search.storyboard */; };
 		7FEA04D329096FA4008334FF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEA04D229096FA4008334FF /* SearchViewController.swift */; };
 		7FEA04D6290973AF008334FF /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEA04D4290973AF008334FF /* SearchTableViewCell.swift */; };
@@ -35,6 +37,7 @@
 		7F0391BA290EC036009D02E8 /* ExUIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExUIImageView.swift; sourceTree = "<group>"; };
 		7F04CD2C2909DFDA00AB3D1A /* DetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F04CD2D2909DFDA00AB3D1A /* DetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsCollectionViewCell.xib; sourceTree = "<group>"; };
+		7F24E6D229106F7000497B27 /* favouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favouriteViewController.swift; sourceTree = "<group>"; };
 		7F6BFA172909957600204314 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
 		7F6BFA192909959F00204314 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		7F899A0A29080B720038BAE6 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
@@ -50,6 +53,7 @@
 		7F95983A29080089005DAD83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F95983D29080089005DAD83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F95983F29080089005DAD83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FE9E0B3290FDC870018AB5A /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		7FEA04CE29096F6F008334FF /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		7FEA04D229096FA4008334FF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7FEA04D4290973AF008334FF /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -88,6 +92,22 @@
 			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
+		7F24E6D029106F4400497B27 /* favourite */ = {
+			isa = PBXGroup;
+			children = (
+				7F24E6D129106F4B00497B27 /* Controller */,
+			);
+			path = favourite;
+			sourceTree = "<group>";
+		};
+		7F24E6D129106F4B00497B27 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7F24E6D229106F7000497B27 /* favouriteViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		7F6BFA12290994FC00204314 /* Details */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +138,7 @@
 		7F767FE1290AC0CD005A7C0D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7FE9E0B3290FDC870018AB5A /* CollectionViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,6 +184,7 @@
 		7F899A1529081B430038BAE6 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				7F24E6D029106F4400497B27 /* favourite */,
 				7F6BFA12290994FC00204314 /* Details */,
 				7FEA04CD29096F5D008334FF /* Search */,
 				7F899A0929080B570038BAE6 /* Home */,
@@ -397,8 +419,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F24E6D329106F7000497B27 /* favouriteViewController.swift in Sources */,
 				7FEA04D6290973AF008334FF /* SearchTableViewCell.swift in Sources */,
 				7F04CD2E2909DFDA00AB3D1A /* DetailsCollectionViewCell.swift in Sources */,
+				7FE9E0B4290FDC870018AB5A /* CollectionViewModel.swift in Sources */,
 				7F899A0F29080BD20038BAE6 /* TableViewCell.swift in Sources */,
 				7F899A1D2908274D0038BAE6 /* ViewCard.swift in Sources */,
 				7F95983629080088005DAD83 /* HomeViewController.swift in Sources */,

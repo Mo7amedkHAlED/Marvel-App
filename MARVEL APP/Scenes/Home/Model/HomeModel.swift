@@ -6,21 +6,6 @@
 //
 
 import UIKit
-
-// MARK: - Home MODEL
-//
-class MarvelHome{
-    let image: String
-    let text : String
-    var des: String
-
-    init(image: String, text: String, des : String ) {
-        self.image = image
-        self.text = text
-        self.des = des
-    }
-}
-
 // MARK: - API Model
 struct APIResult : Codable{
     var data: APICharacterData
@@ -39,6 +24,7 @@ struct Character: Codable{
     var id: Int
     var name: String
     var description: String
+    var inFavorites: Bool?
     var thumbnail : Thumbnail
     var urls: [[String: String]]
 }

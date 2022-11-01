@@ -97,7 +97,7 @@ extension HomeViewController : TableView {
             
         let storyboard = UIStoryboard(name: "Details", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-        vc.ChaArry = charactersArray[indexPath.row]
+        vc.chaArry = charactersArray[indexPath.row]
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true)
     }

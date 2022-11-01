@@ -28,6 +28,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //fetchApiCharacterData(limit: limit, searchText: " ")
+        
         searchBarSetUp()
         registerTableView()
         
@@ -85,7 +86,7 @@ extension SearchViewController : TableView {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Details", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-        vc.ChaArry = searchArrayData[indexPath.row]
+        vc.chaArry = searchArrayData[indexPath.row]
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true)
     }
@@ -100,11 +101,12 @@ extension SearchViewController : TableView {
         var characterimage = searchArrayData[indexPath.row].thumbnail.path
         characterimage += ".jpg"
         cell.saerchImage.kf.setImage(with: URL(string: "\(characterimage)"))
+        cell.favoriteButton.isHidden = true
         return cell
     }
         
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 120
     }
     
 }
