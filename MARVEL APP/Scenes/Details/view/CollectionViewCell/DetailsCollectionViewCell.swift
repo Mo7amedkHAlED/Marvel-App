@@ -11,8 +11,8 @@ class DetailsCollectionViewCell: UICollectionViewCell {
 
     // MARK: - OutLets
     //
-    @IBOutlet weak var CharcterLabel: UILabel!
-    @IBOutlet weak var CharcterImage: UIImageView!
+    @IBOutlet weak var charcterLabel: UILabel!
+    @IBOutlet weak var charcterImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

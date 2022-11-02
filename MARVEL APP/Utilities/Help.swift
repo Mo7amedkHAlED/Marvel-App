@@ -9,4 +9,5 @@ import Foundation
 import UIKit
 
 typealias TableView = UITableViewDelegate & UITableViewDataSource
+
 typealias CollectionView = UICollectionViewDataSource & UICollectionViewDelegate
