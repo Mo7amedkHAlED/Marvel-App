@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 // MARK: - API Model
 struct APIResult : Codable{
     var data: APICharacterData
@@ -24,7 +25,7 @@ struct Character: Codable{
     var id: Int
     var name: String
     var description: String
-    var inFavorites: Bool?
+    var inFavorites: Bool? = false
     var thumbnail : Thumbnail
     var urls: [[String: String]]
 }
