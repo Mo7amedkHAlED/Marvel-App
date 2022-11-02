@@ -9,22 +9,21 @@ import UIKit
 import CryptoKit
 import Alamofire
 import RealmSwift
+
 class DetailsViewController: UIViewController {
     
     // MARK: - Outlets
-    //
-    @IBOutlet weak var ComiceCollectionView: UICollectionView!
-    @IBOutlet weak var StoriesCollectionView: UICollectionView!
-    @IBOutlet weak var SeriesCollectionView: UICollectionView!
-    @IBOutlet weak var FavoriteButton: UIButton!
-    @IBOutlet weak var EventCollectionView: UICollectionView!
-    @IBOutlet weak var CharacterName: UILabel!
-    @IBOutlet weak var BackButton: UIButton!
-    @IBOutlet weak var DesLabel: UILabel!
-    @IBOutlet weak var DetailsImage: UIImageView!
+    @IBOutlet weak var comiceCollectionView: UICollectionView!
+    @IBOutlet weak var storiesCollectionView: UICollectionView!
+    @IBOutlet weak var seriesCollectionView: UICollectionView!
+    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var eventCollectionView: UICollectionView!
+    @IBOutlet weak var characterName: UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var desLabel: UILabel!
+    @IBOutlet weak var detailsImage: UIImageView!
     
     // MARK: - Vars
-    //
     var publicKey = "01973c54d87ab24faec3795d522b42b1"
     var privateKey = "b79e717f216cf6b9f154732ed97c1b69bd8586f8"
     var characterData  : Character?
@@ -35,27 +34,32 @@ class DetailsViewController: UIViewController {
     var dataArray : [ResultData] = []
     let realm = try! Realm()
     var dataCharacter: Results<CaractersModel>!
+    
     // MARK: - Life Cycle
-    //
     override func viewDidLoad() {
         super.viewDidLoad()
         
         registerCollectionView()
         initializationCollectionView()
         initializationView()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         read()
         setInitimage()
+        
     }
-    
+    // MARK: -  create method to get if character is favorite
     func setInitimage(){
+        
         if dataCharacter.contains(where: {$0.caractersId == self.characterData?.id }) {
-            FavoriteButton.setImage(UIImage(named: "favorite2"), for: .normal)
+            favoriteButton.setImage(UIImage(named: "favorite2"), for: .normal)
         } else {
-            FavoriteButton.setImage(UIImage(named: "unfavorite"), for: .normal)
+            favoriteButton.setImage(UIImage(named: "unfavorite"), for: .normal)
         }
+        
     }
     // MARK: - Read from Realm
     private func read() {
@@ -65,49 +69,51 @@ class DetailsViewController: UIViewController {
         
     }
     // MARK: - Change Favorite Button Image
-    func ChangeFavoriteButtonImage(isFavorire: Bool){
+    func ChangeFavoriteButtonImage(isFavorire: Bool) {
+        
         if isFavorire == true {
             let image = UIImage(named: "favorite2")
-            FavoriteButton.setImage(image, for: .normal)
+            favoriteButton.setImage(image, for: .normal)
         } else {
             let image = UIImage(named: "unfavorite")
-            FavoriteButton.setImage(image, for: .normal)
+            favoriteButton.setImage(image, for: .normal)
         }
+        
     }
     // MARK: -  Initialization View
-    func initializationView(){
-        BackButton.layer.cornerRadius = 20
-        BackButton.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
-        CharacterName.text = characterData?.name
+    func initializationView() {
+        backButton.layer.cornerRadius = 20
+        backButton.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+        characterName.text = characterData?.name
         var characterimage = characterData?.thumbnail.path ?? " "
         characterimage += ".jpg"
-        DetailsImage.kf.setImage(with: URL(string: "\(characterimage)"))
+        detailsImage.kf.setImage(with: URL(string: "\(characterimage)"))
         guard let descriptionText = characterData?.description else {return}
-        DesLabel.text = descriptionText
+        desLabel.text = descriptionText
     }
     // MARK: - InitializationCollectionView
-    func initializationCollectionView(){
+    func initializationCollectionView() {
         
         fetchCharacter(collectionName: "comics") { comics in
             self.combisData = comics
-            self.ComiceCollectionView.reloadData()
+            self.comiceCollectionView.reloadData()
         }
         fetchCharacter(collectionName: "comics") { stores in
             self.storesData = stores
-            self.StoriesCollectionView.reloadData()
+            self.storiesCollectionView.reloadData()
         }
         fetchCharacter(collectionName: "series") { series in
             self.seriesData = series
-            self.SeriesCollectionView.reloadData()
+            self.seriesCollectionView.reloadData()
         }
         fetchCharacter(collectionName: "events") { events in
             self.eventsData = events
-            self.EventCollectionView.reloadData()
+            self.eventCollectionView.reloadData()
         }
     }
     
     // MARK: - Fetching Data From Api
-    func fetchCharacter(collectionName: String, completion: @escaping ([ResultData]) -> Void ){
+    func fetchCharacter(collectionName: String, completion: @escaping ([ResultData]) -> Void ) {
         let ts = String(Date().timeIntervalSince1970)
         let hash = MD5(string: "\(ts)\(privateKey)\(publicKey)")
         guard let characterId = characterData?.id else{return}
@@ -136,7 +142,7 @@ class DetailsViewController: UIViewController {
     // MARK: - Set Image For Favorite Button
     @IBAction func favoriteButton(_ sender: UIButton) {
         if let object = dataCharacter.filter({ $0.caractersId == self.characterData?.id }).first {
-            FavoriteButton.setImage(UIImage(named: "unfavorite"), for: .normal)
+            favoriteButton.setImage(UIImage(named: "unfavorite"), for: .normal)
             do {
                 try realm.write {
                     realm.delete(object)
@@ -157,36 +163,35 @@ class DetailsViewController: UIViewController {
                     realm.add(characterISFav)
                 }
             } catch {
-                
+                print("Error trying to delete object from realm database. \(error)")
             }
-            FavoriteButton.setImage(UIImage(named: "favorite2"), for: .normal)
+            favoriteButton.setImage(UIImage(named: "favorite2"), for: .normal)
         }
-        
     }
 // MARK: - Configure CollectionView
 func registerCollectionView(){
-    ComiceCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
+    comiceCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
     
-    StoriesCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
+    storiesCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
     
-    SeriesCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
+    seriesCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
     
-    EventCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
+    eventCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
 }
 // MARK: - IBAction
 @IBAction func BackButton(_ sender: UIButton) {
     dismiss(animated: true)
-}
+    }
 
 }
 // MARK: -Create Extension CollectionView DataSource & Delegate Method
 extension DetailsViewController : CollectionView{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == ComiceCollectionView {
+        if collectionView == comiceCollectionView {
             return combisData.count
-        } else if collectionView == SeriesCollectionView {
+        } else if collectionView == seriesCollectionView {
             return seriesData.count
-        } else if collectionView == StoriesCollectionView {
+        } else if collectionView == storiesCollectionView {
             return storesData.count
         } else {
             return eventsData.count
@@ -196,22 +201,22 @@ extension DetailsViewController : CollectionView{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailsCollectionViewCell", for: indexPath) as! DetailsCollectionViewCell
         var result = [ResultData]()
-        if collectionView == ComiceCollectionView {
+        if collectionView == comiceCollectionView {
             result = combisData
         }
-        else if collectionView == StoriesCollectionView {
+        else if collectionView == storiesCollectionView {
             result = storesData
         }
-        else if collectionView == SeriesCollectionView {
+        else if collectionView == seriesCollectionView {
             result = seriesData
         }
         else {
             result = eventsData
         }
-        cell.CharcterLabel.text = result[indexPath.row].title
+        cell.charcterLabel.text = result[indexPath.row].title
         var characterimage = result[indexPath.row].thumbnail.path
         characterimage += ".jpg"
-        cell.CharcterImage.kf.setImage(with: URL(string: "\(characterimage)"))
+        cell.charcterImage.kf.setImage(with: URL(string: "\(characterimage)"))
         return cell
     }
 }

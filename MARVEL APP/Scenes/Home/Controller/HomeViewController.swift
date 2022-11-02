@@ -19,29 +19,27 @@ class HomeViewController: UIViewController {
     // MARK: - Vars
     var charactersArray: [Character] = []
     private var images : [String] = []
-    
-    // MARK: - Pagination Vars
-        var charactersPerPages = 10
-        var limit = 10
-        
-    //
     var publicKey = "01973c54d87ab24faec3795d522b42b1"
     var privateKey = "b79e717f216cf6b9f154732ed97c1b69bd8586f8"
-    override func viewDidLoad() {
+    
+    // MARK: - Pagination Vars
+    var charactersPerPages = 10
+    var limit = 10
+    
     // MARK: - Life Cycle
+    override func viewDidLoad() {
         super.viewDidLoad()
+        
         fetchApiCharacterData(limit: limit)
         registerCollectionView()
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "Marvel"))
-        
-        
     }
-      
+    
     // MARK: - Fetching Data From Api
-    func fetchApiCharacterData(limit: Int){
+    func fetchApiCharacterData(limit: Int) {
         let ts = String(Date().timeIntervalSince1970)
         let hash = MD5(string: "\(ts)\(privateKey)\(publicKey)")
-        guard let url =  URL(string: "https://gateway.marvel.com:443/v1/public/characters?limit=\(limit)&ts=\(ts)&hash=\(hash)&apikey=\(publicKey)") else { return}
+        guard let url =  URL(string: "https://gateway.marvel.com:443/v1/public/characters?limit=\(limit)&ts=\(ts)&hash=\(hash)&apikey=\(publicKey)") else { return }
         ProgressHUD.show()
         AF.request(url, method: .get,encoding: JSONEncoding.default).responseDecodable(of: APIResult.self) { [self] respone in
             switch respone.result{
@@ -53,14 +51,14 @@ class HomeViewController: UIViewController {
             case.failure(let error):
                 print(error.localizedDescription)
                 ProgressHUD.showError()
-
+                
             }
         }
     }
     //MARK: - Get MD5 Method
     func MD5(string: String) -> String {
         let digest = Insecure.MD5.hash(data: string.data(using: .utf8) ?? Data())
-
+        
         return digest.map {
             String(format: "%02hhx", $0)
         }.joined()
@@ -68,7 +66,7 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Configure CollectionView
-    func registerCollectionView(){
+    func registerCollectionView() {
         TableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
         TableView.delegate = self
         TableView.dataSource = self
@@ -93,7 +91,7 @@ extension HomeViewController : TableView {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            
+        
         let storyboard = UIStoryboard(name: "Details", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
         vc.characterData = charactersArray[indexPath.row]
@@ -116,7 +114,7 @@ extension HomeViewController : TableView {
     }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView == TableView {
-            if limit <= 100{
+            if limit <= 100 {
                 if (scrollView.contentOffset.y + scrollView.frame.size.height) >= (scrollView.contentSize.height){
                     fetchApiCharacterData(limit: limit)
                 }
