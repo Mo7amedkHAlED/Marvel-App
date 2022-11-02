@@ -86,7 +86,7 @@ extension SearchViewController : TableView {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Details", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-        vc.chaArry = searchArrayData[indexPath.row]
+        vc.characterData = searchArrayData[indexPath.row]
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true)
     }

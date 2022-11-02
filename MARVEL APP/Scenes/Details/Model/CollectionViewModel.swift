@@ -23,7 +23,7 @@ struct ResultData: Codable {
 }
 struct ThumbnailPath: Codable {
     let path: String
-    let thumbnailExtension: Extension
+    let thumbnailExtension: ExtensionImagge
 
     enum CodingKeys: String, CodingKey {
         case path

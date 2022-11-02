@@ -48,7 +48,6 @@ class HomeViewController: UIViewController {
             case.success(let character):
                 self.charactersArray = character.data.results
                 self.limit += 10
-//                }
                 self.TableView.reloadData()
                 ProgressHUD.dismiss()
             case.failure(let error):
@@ -97,7 +96,7 @@ extension HomeViewController : TableView {
             
         let storyboard = UIStoryboard(name: "Details", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-        vc.chaArry = charactersArray[indexPath.row]
+        vc.characterData = charactersArray[indexPath.row]
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true)
     }
