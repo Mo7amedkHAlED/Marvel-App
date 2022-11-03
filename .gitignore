@@ -67,6 +67,7 @@ Carthage/Build/
 # Accio dependency management
 Dependencies/
 .accio/
+Secret.xcconfig
 
 # fastlane
 #
