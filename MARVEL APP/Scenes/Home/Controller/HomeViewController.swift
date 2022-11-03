@@ -19,8 +19,8 @@ class HomeViewController: UIViewController {
     // MARK: - Vars
     var charactersArray: [Character] = []
     private var images : [String] = []
-    var publicKey = "01973c54d87ab24faec3795d522b42b1"
-    var privateKey = "b79e717f216cf6b9f154732ed97c1b69bd8586f8"
+    var publicKey = Configurations.getValue(for: "Public_Key")
+    var privateKey = Configurations.getValue(for: "Private_Key")
     
     // MARK: - Pagination Vars
     var charactersPerPages = 10

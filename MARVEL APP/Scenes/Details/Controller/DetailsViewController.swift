@@ -13,19 +13,23 @@ import RealmSwift
 class DetailsViewController: UIViewController {
     
     // MARK: - Outlets
+    @IBOutlet weak var comiceLabel: UILabel!
     @IBOutlet weak var comiceCollectionView: UICollectionView!
+    @IBOutlet weak var stoiesLabel: UILabel!
     @IBOutlet weak var storiesCollectionView: UICollectionView!
+    @IBOutlet weak var seriesLabel: UILabel!
     @IBOutlet weak var seriesCollectionView: UICollectionView!
-    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var eventLabel: UILabel!
     @IBOutlet weak var eventCollectionView: UICollectionView!
+    @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var characterName: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var desLabel: UILabel!
     @IBOutlet weak var detailsImage: UIImageView!
     
     // MARK: - Vars
-    var publicKey = "01973c54d87ab24faec3795d522b42b1"
-    var privateKey = "b79e717f216cf6b9f154732ed97c1b69bd8586f8"
+    var publicKey = Configurations.getValue(for: "Public_Key")
+    var privateKey = Configurations.getValue(for: "Private_Key")
     var characterData  : Character?
     var combisData: [ResultData] = []
     var seriesData: [ResultData] = []
@@ -64,7 +68,6 @@ class DetailsViewController: UIViewController {
     // MARK: - Read from Realm
     private func read() {
         
-        print("Read from Realm")
         dataCharacter = realm.objects(CaractersModel.self)
         
     }
@@ -78,7 +81,6 @@ class DetailsViewController: UIViewController {
             let image = UIImage(named: "unfavorite")
             favoriteButton.setImage(image, for: .normal)
         }
-        
     }
     // MARK: -  Initialization View
     func initializationView() {
@@ -168,33 +170,47 @@ class DetailsViewController: UIViewController {
             favoriteButton.setImage(UIImage(named: "favorite2"), for: .normal)
         }
     }
-// MARK: - Configure CollectionView
-func registerCollectionView(){
-    comiceCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
-    
-    storiesCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
-    
-    seriesCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
-    
-    eventCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
-}
-// MARK: - IBAction
-@IBAction func BackButton(_ sender: UIButton) {
-    dismiss(animated: true)
+    // MARK: - Configure CollectionView
+    func registerCollectionView(){
+        comiceCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
+        
+        storiesCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
+        
+        seriesCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
+        
+        eventCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
     }
-
+    // MARK: - IBAction
+    @IBAction func BackButton(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+    
 }
 // MARK: -Create Extension CollectionView DataSource & Delegate Method
 extension DetailsViewController : CollectionView{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == comiceCollectionView {
+            isHidden(array: combisData, collection: comiceCollectionView, labelname: comiceLabel)
             return combisData.count
         } else if collectionView == seriesCollectionView {
+            isHidden(array: seriesData, collection: seriesCollectionView, labelname: seriesLabel)
             return seriesData.count
         } else if collectionView == storiesCollectionView {
+           isHidden(array: seriesData, collection: storiesCollectionView, labelname: stoiesLabel)
             return storesData.count
         } else {
+           isHidden(array: eventsData, collection: eventCollectionView, labelname: eventLabel)
             return eventsData.count
+        }
+        func isHidden(array: [ResultData], collection : UICollectionView, labelname : UILabel ){
+            if array.count == 0 {
+                collection.isHidden = true
+                labelname.isHidden = true
+            } else {
+                collection.isHidden = false
+                labelname.isHidden = false
+            }
+            
         }
     }
     
@@ -214,8 +230,7 @@ extension DetailsViewController : CollectionView{
             result = eventsData
         }
         cell.charcterLabel.text = result[indexPath.row].title
-        var characterimage = result[indexPath.row].thumbnail.path
-        characterimage += ".jpg"
+        var characterimage = "\(result[indexPath.row].thumbnail.path).jpg"
         cell.charcterImage.kf.setImage(with: URL(string: "\(characterimage)"))
         return cell
     }

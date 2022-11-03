@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7F04CD2E2909DFDA00AB3D1A /* DetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F04CD2C2909DFDA00AB3D1A /* DetailsCollectionViewCell.swift */; };
 		7F04CD2F2909DFDA00AB3D1A /* DetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F04CD2D2909DFDA00AB3D1A /* DetailsCollectionViewCell.xib */; };
+		7F0C1CB129131418009DA122 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C1CB029131418009DA122 /* Configurations.swift */; };
 		7F24E6D329106F7000497B27 /* favouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F24E6D229106F7000497B27 /* favouriteViewController.swift */; };
 		7F6BFA182909957600204314 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F6BFA172909957600204314 /* Details.storyboard */; };
 		7F6BFA1A2909959F00204314 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6BFA192909959F00204314 /* DetailsViewController.swift */; };
@@ -36,6 +37,8 @@
 		1872F3C848042C53934B0093 /* Pods-MARVEL APP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MARVEL APP.debug.xcconfig"; path = "Target Support Files/Pods-MARVEL APP/Pods-MARVEL APP.debug.xcconfig"; sourceTree = "<group>"; };
 		7F04CD2C2909DFDA00AB3D1A /* DetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F04CD2D2909DFDA00AB3D1A /* DetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsCollectionViewCell.xib; sourceTree = "<group>"; };
+		7F0C1CAD291311B2009DA122 /* Secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret.xcconfig; sourceTree = "<group>"; };
+		7F0C1CB029131418009DA122 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
 		7F24E6D229106F7000497B27 /* favouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favouriteViewController.swift; sourceTree = "<group>"; };
 		7F6BFA172909957600204314 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
 		7F6BFA192909959F00204314 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +234,7 @@
 			children = (
 				7F899A1129080FC80038BAE6 /* Help.swift */,
 				7F899A1C2908274D0038BAE6 /* ViewCard.swift */,
+				7F0C1CB029131418009DA122 /* Configurations.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -238,6 +242,7 @@
 		7F95982529080088005DAD83 = {
 			isa = PBXGroup;
 			children = (
+				7F0C1CAD291311B2009DA122 /* Secret.xcconfig */,
 				7F95983029080088005DAD83 /* MARVEL APP */,
 				7F95982F29080088005DAD83 /* Products */,
 				4499D5BA5F257AA9BA059BBD /* Pods */,
@@ -438,6 +443,7 @@
 				7F899A1229080FC80038BAE6 /* Help.swift in Sources */,
 				7F899A0B29080B720038BAE6 /* HomeModel.swift in Sources */,
 				7F95983229080088005DAD83 /* AppDelegate.swift in Sources */,
+				7F0C1CB129131418009DA122 /* Configurations.swift in Sources */,
 				7FEA04D329096FA4008334FF /* SearchViewController.swift in Sources */,
 				7F95983429080088005DAD83 /* SceneDelegate.swift in Sources */,
 				7F6BFA1A2909959F00204314 /* DetailsViewController.swift in Sources */,
@@ -468,6 +474,7 @@
 /* Begin XCBuildConfiguration section */
 		7F95984029080089005DAD83 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F0C1CAD291311B2009DA122 /* Secret.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -528,6 +535,7 @@
 		};
 		7F95984129080089005DAD83 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F0C1CAD291311B2009DA122 /* Secret.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

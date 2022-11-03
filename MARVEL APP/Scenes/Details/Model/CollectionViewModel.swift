@@ -18,7 +18,7 @@ struct APICollectionData: Codable{
 struct ResultData: Codable {
     let id: Int
     let title: String
-    let variantDescription, resultDescription: String
+   // let variantDescription, resultDescription: String
     let thumbnail: ThumbnailPath
 }
 struct ThumbnailPath: Codable {
