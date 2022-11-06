@@ -7,7 +7,7 @@
 
 import RealmSwift
 
-// MARK: -  create Realm Caracter Model To Save Data Local
+// MARK: -  Create Realm Caracter Model To Save Data Local
 class CaractersModel: Object {
     
     @objc dynamic var caractersName: String = " "

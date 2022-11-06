@@ -37,7 +37,6 @@
 		1872F3C848042C53934B0093 /* Pods-MARVEL APP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MARVEL APP.debug.xcconfig"; path = "Target Support Files/Pods-MARVEL APP/Pods-MARVEL APP.debug.xcconfig"; sourceTree = "<group>"; };
 		7F04CD2C2909DFDA00AB3D1A /* DetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F04CD2D2909DFDA00AB3D1A /* DetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsCollectionViewCell.xib; sourceTree = "<group>"; };
-		7F0C1CAD291311B2009DA122 /* Secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret.xcconfig; sourceTree = "<group>"; };
 		7F0C1CB029131418009DA122 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
 		7F24E6D229106F7000497B27 /* favouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favouriteViewController.swift; sourceTree = "<group>"; };
 		7F6BFA172909957600204314 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
@@ -61,6 +60,7 @@
 		7FEA04D229096FA4008334FF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7FEA04D4290973AF008334FF /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		7FEA04D5290973AF008334FF /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
+		929EB5692913D624003BE00E /* Secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret.xcconfig; sourceTree = "<group>"; };
 		DB4EBF83965F4467244F31A0 /* Pods-MARVEL APP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MARVEL APP.release.xcconfig"; path = "Target Support Files/Pods-MARVEL APP/Pods-MARVEL APP.release.xcconfig"; sourceTree = "<group>"; };
 		DDD8A2F19E1124CD2B23EC8C /* Pods_MARVEL_APP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MARVEL_APP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -242,7 +242,7 @@
 		7F95982529080088005DAD83 = {
 			isa = PBXGroup;
 			children = (
-				7F0C1CAD291311B2009DA122 /* Secret.xcconfig */,
+				929EB5692913D624003BE00E /* Secret.xcconfig */,
 				7F95983029080088005DAD83 /* MARVEL APP */,
 				7F95982F29080088005DAD83 /* Products */,
 				4499D5BA5F257AA9BA059BBD /* Pods */,
@@ -474,7 +474,7 @@
 /* Begin XCBuildConfiguration section */
 		7F95984029080089005DAD83 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F0C1CAD291311B2009DA122 /* Secret.xcconfig */;
+			baseConfigurationReference = 929EB5692913D624003BE00E /* Secret.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -535,7 +535,7 @@
 		};
 		7F95984129080089005DAD83 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F0C1CAD291311B2009DA122 /* Secret.xcconfig */;
+			baseConfigurationReference = 929EB5692913D624003BE00E /* Secret.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

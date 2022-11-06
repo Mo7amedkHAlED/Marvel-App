@@ -22,6 +22,8 @@ class SearchViewController: UIViewController {
     var searchArrayData = [Character]()
     var charactersPerPages = 10
     var limit = 10
+    //TODO: - Use the constant keys from the config file and refactor them to be constants instead of variables since
+    // its value will not be changed during the runtime Also avoid to deifne unwanted global variable since it's only used in
     var publicKey = "01973c54d87ab24faec3795d522b42b1"
     var privateKey = "b79e717f216cf6b9f154732ed97c1b69bd8586f8"
     
@@ -33,7 +35,7 @@ class SearchViewController: UIViewController {
         registerTableView()
         
     }
-    
+    //TODO: - Move this method to networking class containing all api requests
     // MARK: - Fetching Data From Api
     func fetchApiCharacterData(searchText: String) {
         let ts = String(Date().timeIntervalSince1970)
@@ -51,7 +53,7 @@ class SearchViewController: UIViewController {
             }
         }
     }
-    
+    //TODO: - Refactor this to be an extenison on all Strings data types
     //MARK: - Get MD5 Method
     func MD5(string: String) -> String {
         let digest = Insecure.MD5.hash(data: string.data(using: .utf8) ?? Data())
@@ -80,7 +82,7 @@ class SearchViewController: UIViewController {
 }
 
 // MARK: - Create Extension Table View Delegate & Data Source methods
-extension SearchViewController : TableView {
+extension SearchViewController: TableView {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Details", bundle: nil)
@@ -115,7 +117,6 @@ extension SearchViewController : UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         fetchApiCharacterData(searchText: searchText)
-        print(searchBar)
         searchTableView.reloadData()
        }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {

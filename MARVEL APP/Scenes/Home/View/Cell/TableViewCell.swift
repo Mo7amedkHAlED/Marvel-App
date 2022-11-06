@@ -19,6 +19,8 @@ class TableViewCell: UITableViewCell {
     // MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        // TODO: - Refactor this to be an extension method on all UIViews and pass the desired corners you want to round
+        // like: func roundCorners(corners: CACornerMask) {...}
         blurView.layer.cornerRadius = 10
         blurView.clipsToBounds = true
         blurView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
