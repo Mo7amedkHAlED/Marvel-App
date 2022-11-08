@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,6 +22,11 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Iro_Man" translatesAutoresizingMaskIntoConstraints="NO" id="Q2e-oi-OLd">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="200.66666666666666"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDc-Tx-SjO" userLabel="BackButton">
                                         <rect key="frame" x="0.0" y="40" width="80" height="40"/>
@@ -61,6 +66,11 @@
                                     <constraint firstItem="Q2e-oi-OLd" firstAttribute="leading" secondItem="Joc-Tx-TxT" secondAttribute="leading" id="fno-GH-J56"/>
                                     <constraint firstItem="Q2e-oi-OLd" firstAttribute="top" secondItem="Joc-Tx-TxT" secondAttribute="top" id="yPG-Or-p5j"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zyg-HC-EUs">
                                 <rect key="frame" x="0.0" y="200.66666666666669" width="390" height="643.33333333333326"/>
@@ -74,9 +84,8 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiF-oB-bZI">
-                                                <rect key="frame" x="8" y="92.000000000000028" width="374" height="81.333333333333343"/>
-                                                <string key="text">kjhghfhgfghfgdfgdddsfsdfsfkjhghfhgfghfgdfgdddsfsdfsfkjhghfhgfghfgdfgdddsfsdfsfkjhghfhgfghfgdfgdddsfsdfsfkjhghfhgfghfgdfgdddsfsdfsfkjhghfhgfghfgdfgdddsfsdfsf</string>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="kjhghfhgfghfgdfgdddsfsdfsfkjhghfhgfghfgdfgdddsfsdfsfkjhg" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiF-oB-bZI">
+                                                <rect key="frame" x="8" y="92.000000000000028" width="374" height="40.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -88,7 +97,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Q22-fa-5Jh">
-                                                <rect key="frame" x="8" y="189.33333333333337" width="374" height="632"/>
+                                                <rect key="frame" x="8" y="148.66666666666663" width="374" height="632"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Comics" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e4D-Sh-ntL">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
@@ -116,13 +125,13 @@
                                                         </connections>
                                                     </collectionView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Stories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieM-0j-WSq">
-                                                        <rect key="frame" x="0.0" y="160" width="374" height="24"/>
+                                                        <rect key="frame" x="0.0" y="160.00000000000006" width="374" height="24"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <color key="textColor" red="1" green="0.53725492949999998" blue="0.55686277149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LoT-NJ-Q0P">
-                                                        <rect key="frame" x="0.0" y="192" width="374" height="120"/>
+                                                        <rect key="frame" x="0.0" y="192.00000000000006" width="374" height="120"/>
                                                         <color key="backgroundColor" red="0.082352943720000002" green="0.109803915" blue="0.14509806040000001" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="B2f-Tv-6Vo"/>
@@ -141,13 +150,13 @@
                                                         </connections>
                                                     </collectionView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Series" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHR-3m-ulQ">
-                                                        <rect key="frame" x="0.0" y="320" width="374" height="24"/>
+                                                        <rect key="frame" x="0.0" y="320.00000000000006" width="374" height="24"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <color key="textColor" red="1" green="0.53725492949999998" blue="0.55686277149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ib2-Bq-aA4">
-                                                        <rect key="frame" x="0.0" y="352" width="374" height="120"/>
+                                                        <rect key="frame" x="0.0" y="352.00000000000006" width="374" height="120"/>
                                                         <color key="backgroundColor" red="0.082352943720000002" green="0.109803915" blue="0.14509806040000001" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="120" id="WLG-Tl-bLK"/>
@@ -166,7 +175,7 @@
                                                         </connections>
                                                     </collectionView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lch-Rh-DpD">
-                                                        <rect key="frame" x="0.0" y="480" width="374" height="24"/>
+                                                        <rect key="frame" x="0.0" y="480.00000000000006" width="374" height="24"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <color key="textColor" red="1" green="0.53725492949999998" blue="0.55686277149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>

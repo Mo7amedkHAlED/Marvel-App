@@ -98,11 +98,7 @@ extension SearchViewController: TableView {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = searchTableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
-        cell.searchLabel.text = searchArrayData[indexPath.row].name
-        var characterimage = searchArrayData[indexPath.row].thumbnail.path
-        characterimage += ".jpg"
-        cell.saerchImage.kf.setImage(with: URL(string: "\(characterimage)"))
-        cell.favoriteButton.isHidden = true
+        cell.configureSearchCell(searchArrayData[indexPath.row])
         return cell
     }
         

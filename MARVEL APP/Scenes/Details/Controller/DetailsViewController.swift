@@ -51,44 +51,46 @@ class DetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        read()
+        fetchCaracterListDB()
         setInitimage()
         
     }
+    
     // MARK: -  create method to get if character is favorite
     func setInitimage(){
-        
         if dataCharacter.contains(where: {$0.caractersId == self.characterData?.id }) {
-            favoriteButton.setImage(UIImage(named: "favorite2"), for: .normal)
+            UpdateFavoriteButtonImage(imageName: "favorite2")
         } else {
-            favoriteButton.setImage(UIImage(named: "unfavorite"), for: .normal)
+            UpdateFavoriteButtonImage(imageName: "unfavorite")
         }
-        
     }
+    
     // MARK: - Read from Realm
-    private func read() {
-        
+    private func fetchCaracterListDB() {
         dataCharacter = realm.objects(CaractersModel.self)
-        
     }
+    
     // MARK: - Change Favorite Button Image
     func ChangeFavoriteButtonImage(isFavorire: Bool) {
-        
         if isFavorire == true {
-            let image = UIImage(named: "favorite2")
-            favoriteButton.setImage(image, for: .normal)
+           UpdateFavoriteButtonImage(imageName: "favorite2")
         } else {
-            let image = UIImage(named: "unfavorite")
-            favoriteButton.setImage(image, for: .normal)
+           UpdateFavoriteButtonImage(imageName: "unfavorite")
         }
     }
+    
+    // MARK: - Update Favorite Button Image
+    func UpdateFavoriteButtonImage(imageName : String) {
+        let image = UIImage(named: imageName)
+        favoriteButton.setImage(image, for: .normal)
+    }
+    
     // MARK: -  Initialization View
     func initializationView() {
         backButton.layer.cornerRadius = 20
         backButton.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
         characterName.text = characterData?.name
-        var characterimage = characterData?.thumbnail.path ?? " "
-        characterimage += ".jpg"
+        let characterimage = "\(characterData?.thumbnail.path ?? " ").jpg"
         detailsImage.kf.setImage(with: URL(string: "\(characterimage)"))
         guard let descriptionText = characterData?.description else {return}
         desLabel.text = descriptionText
@@ -144,7 +146,7 @@ class DetailsViewController: UIViewController {
     // MARK: - Set Image For Favorite Button
     @IBAction func favoriteButton(_ sender: UIButton) {
         if let object = dataCharacter.filter({ $0.caractersId == self.characterData?.id }).first {
-            favoriteButton.setImage(UIImage(named: "unfavorite"), for: .normal)
+           UpdateFavoriteButtonImage(imageName: "unfavorite")
             do {
                 try realm.write {
                     realm.delete(object)
@@ -229,9 +231,7 @@ extension DetailsViewController : CollectionView{
         else {
             result = eventsData
         }
-        cell.charcterLabel.text = result[indexPath.row].title
-        var characterimage = "\(result[indexPath.row].thumbnail.path).jpg"
-        cell.charcterImage.kf.setImage(with: URL(string: "\(characterimage)"))
+        cell.configureCell(collectionData: result[indexPath.row])
         return cell
     }
 }

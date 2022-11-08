@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fx-F0-YD6" customClass="CardView" customModule="MARVEL_APP" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fx-F0-YD6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="118"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Iro_Man" translatesAutoresizingMaskIntoConstraints="NO" id="6nJ-Wd-akP">
@@ -26,6 +26,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
                                         <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
@@ -39,6 +42,11 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                         <blurEffect style="systemChromeMaterial"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </visualEffectView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haX-jy-AaL">
                                         <rect key="frame" x="8" y="8" width="304" height="29"/>
@@ -57,6 +65,11 @@
                                     <constraint firstItem="haX-jy-AaL" firstAttribute="top" secondItem="5BQ-82-fUS" secondAttribute="top" constant="8" id="uRz-Vu-Qjp"/>
                                     <constraint firstItem="CZH-gi-PZj" firstAttribute="height" secondItem="5BQ-82-fUS" secondAttribute="height" multiplier="1.01299" id="yIG-2T-Q3i"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -72,6 +85,9 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
                                 <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -90,11 +106,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="View" destination="5BQ-82-fUS" id="esi-Ey-Iai"/>
                 <outlet property="blurView" destination="CZH-gi-PZj" id="xcK-Lx-SLq"/>
                 <outlet property="characterHomeImage" destination="6nJ-Wd-akP" id="LmJ-8L-2zE"/>
                 <outlet property="characterName" destination="haX-jy-AaL" id="EDI-3Z-Hv0"/>
-                <outlet property="view1" destination="2fx-F0-YD6" id="pdh-qv-Uip"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="85.714285714285708"/>
         </tableViewCell>
