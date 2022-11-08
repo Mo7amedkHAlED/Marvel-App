@@ -86,42 +86,6 @@
             </objects>
             <point key="canvasLocation" x="1196" y="102.99850074962519"/>
         </scene>
-        <!--Favorite character-->
-        <scene sceneID="NDL-y6-oSK">
-            <objects>
-                <viewController id="nsh-SH-nHE" customClass="favouriteViewController" customModule="MARVEL_APP" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hgY-xY-Uy6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hxE-M6-SED">
-                                <rect key="frame" x="0.0" y="49" width="375" height="569"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="nsh-SH-nHE" id="blC-G4-8zV"/>
-                                    <outlet property="delegate" destination="nsh-SH-nHE" id="iT6-5g-m0D"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="yUy-ap-EXP"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="yUy-ap-EXP" firstAttribute="bottom" secondItem="hxE-M6-SED" secondAttribute="bottom" id="1rd-Xx-k4h"/>
-                            <constraint firstItem="hxE-M6-SED" firstAttribute="leading" secondItem="yUy-ap-EXP" secondAttribute="leading" id="ZvN-Jz-ULM"/>
-                            <constraint firstItem="hxE-M6-SED" firstAttribute="centerX" secondItem="hgY-xY-Uy6" secondAttribute="centerX" id="jqM-I9-zoB"/>
-                            <constraint firstItem="hxE-M6-SED" firstAttribute="centerY" secondItem="hgY-xY-Uy6" secondAttribute="centerY" id="pbS-pv-Gjo"/>
-                            <constraint firstItem="yUy-ap-EXP" firstAttribute="trailing" secondItem="hxE-M6-SED" secondAttribute="trailing" id="prD-11-ptb"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Favorite character" style="editor" id="ERE-ho-X5q"/>
-                    <connections>
-                        <outlet property="favouriteTabelView" destination="hxE-M6-SED" id="7Fg-Qt-0YX"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PxB-Kh-dQf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1577" y="915"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="aTY-Ic-hu3">
             <objects>
@@ -130,47 +94,39 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yde-bX-PY6">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" systemColor="systemPinkColor"/>
-                        <tabBarAppearance key="standardAppearance" backgroundImageContentMode="scaleToFill"/>
+                        <tabBarAppearance key="standardAppearance" backgroundImageContentMode="scaleToFill">
+                            <color key="backgroundColor" red="0.91764706370000004" green="0.270588249" blue="0.35686278339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </tabBarAppearance>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="qqK-WT-qMe"/>
-                        <segue destination="ZOC-gD-w1L" kind="relationship" relationship="viewControllers" id="Yik-SD-nen"/>
+                        <segue destination="h8D-ye-tr1" kind="relationship" relationship="viewControllers" id="2KH-8X-IvT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlm-Ox-bpg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="256.80000000000001" y="102.99850074962519"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="2jH-zL-OZs">
+        <!--favouriteListVc-->
+        <scene sceneID="QQG-vg-vAv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZOC-gD-w1L" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" selectedImage="star" catalog="system" systemItem="favorites" id="lDC-Ef-JHc"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HcX-CY-arv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="nsh-SH-nHE" kind="relationship" relationship="rootViewController" id="rUC-NN-fg9"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3tQ-2G-Nte" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="favouriteListVc" storyboardName="favorite" referencedIdentifier="favouriteListVc" id="h8D-ye-tr1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" enabled="NO" title="" selectedImage="star.fill" catalog="system" systemItem="favorites" id="9cY-lg-0F3">
+                        <color key="badgeColor" red="0.91764706370000004" green="0.270588249" blue="0.35686278339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c5a-7Z-HOP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="695" y="916"/>
+            <point key="canvasLocation" x="257" y="516"/>
         </scene>
     </scenes>
     <resources>
         <image name="Marvel_Studios" width="2774" height="700"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
-        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

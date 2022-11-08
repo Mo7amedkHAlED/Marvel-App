@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailsCollectionViewCell: UICollectionViewCell {
-
+    
     // MARK: - OutLets
     //
     @IBOutlet weak var charcterLabel: UILabel!
@@ -16,7 +16,12 @@ class DetailsCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-
+        
     }
-
+    // MARK: - Make Configure Cell
+    func configureCell(collectionData: ResultData){
+        charcterLabel.text = collectionData.title
+        let characterimage = "\(collectionData.thumbnail.path).jpg"
+        charcterImage.kf.setImage(with: URL(string: "\(characterimage)"))
+    }
 }

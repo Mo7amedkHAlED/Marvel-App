@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Favorite character-->
+        <scene sceneID="zMh-cK-RBM">
+            <objects>
+                <viewController restorationIdentifier="favouriteListVc" storyboardIdentifier="favouriteListVc" id="8ZI-4W-VOZ" customClass="favouriteListVc" customModule="MARVEL_APP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YcD-PY-lIO">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="j4i-Dl-xTh">
+                                <rect key="frame" x="0.0" y="83" width="393" height="686"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8ZI-4W-VOZ" id="bzq-di-bEC"/>
+                                    <outlet property="delegate" destination="8ZI-4W-VOZ" id="kP2-39-fZE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RVf-eU-GeL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="j4i-Dl-xTh" firstAttribute="centerY" secondItem="YcD-PY-lIO" secondAttribute="centerY" id="1UP-7K-zMa"/>
+                            <constraint firstItem="RVf-eU-GeL" firstAttribute="trailing" secondItem="j4i-Dl-xTh" secondAttribute="trailing" id="QaV-Hn-5nE"/>
+                            <constraint firstItem="j4i-Dl-xTh" firstAttribute="leading" secondItem="RVf-eU-GeL" secondAttribute="leading" id="pf9-cz-szW"/>
+                            <constraint firstItem="RVf-eU-GeL" firstAttribute="bottom" secondItem="j4i-Dl-xTh" secondAttribute="bottom" id="tVP-GX-U0d"/>
+                            <constraint firstItem="j4i-Dl-xTh" firstAttribute="centerX" secondItem="YcD-PY-lIO" secondAttribute="centerX" id="uPG-jp-HmK"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" selectedImage="star" catalog="system" systemItem="favorites" id="JYg-Mc-5OZ"/>
+                    <navigationItem key="navigationItem" title="Favorite character" id="LaM-wW-2k6"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="favouriteTabelView" destination="j4i-Dl-xTh" id="Y1v-eB-TXD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QT4-oL-gu4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1577" y="915"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="DsJ-KK-78c">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uvi-OE-E7D" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CM0-PW-jAN">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8ZI-4W-VOZ" kind="relationship" relationship="rootViewController" id="RfC-rR-Iag"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nbQ-3Y-uat" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="695" y="916"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

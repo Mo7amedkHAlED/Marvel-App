@@ -1,12 +1,12 @@
 PODS:
   - Alamofire (5.6.2)
-  - Kingfisher (7.4.0)
+  - Kingfisher (7.4.1)
   - ProgressHUD (13.6)
-  - Realm (10.32.1):
-    - Realm/Headers (= 10.32.1)
-  - Realm/Headers (10.32.1)
-  - RealmSwift (10.32.1):
-    - Realm (= 10.32.1)
+  - Realm (10.32.2):
+    - Realm/Headers (= 10.32.2)
+  - Realm/Headers (10.32.2)
+  - RealmSwift (10.32.2):
+    - Realm (= 10.32.2)
 
 DEPENDENCIES:
   - Alamofire
@@ -24,10 +24,10 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
-  Kingfisher: 596b207973051aae5e4c54a1c1cb39837ea10d36
+  Kingfisher: cd762a593a61b2fbecf7645c00f9a801a3ebfc9c
   ProgressHUD: 4bdaa0d2ddf676b23324b199f9facffb5c3a1620
-  Realm: fd821b81e5479be497cc5bca2e020f707d8323eb
-  RealmSwift: 8635e4cc524790916d72b0ffa51c1a91f4ec9668
+  Realm: a11d133606e898ee43ddd3c24050a382c8d3eab1
+  RealmSwift: f796f7701a5efa031554d5639ef5b2d4c850bc74
 
 PODFILE CHECKSUM: d0415e2fb1fa005e839c6d6b36cb4e155b2a84d2
 

@@ -1,10 +1,6 @@
-//
-//  CardView.swift
-//  DAL_IOS
-//
-//  Created by Diaa SALAM on 03/08/2022.
-//  Copyright © 2022 com.M.Abdu. All rights reserved.
-//
+
+
+
 
 import UIKit
 
@@ -17,5 +13,18 @@ extension UIView {
             layer.cornerRadius = newValue
             layer.masksToBounds = newValue > 0
         }
+    }
+}
+
+extension UIView {
+    // available from iOS 11.0
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+        self.layer.cornerRadius = radius
+        var cornerMask = CACornerMask()
+        if corners.contains(.topLeft) { cornerMask.insert(.layerMinXMinYCorner) }
+        if corners.contains(.topRight) { cornerMask.insert(.layerMaxXMinYCorner) }
+        if corners.contains(.bottomLeft) { cornerMask.insert(.layerMinXMaxYCorner) }
+        if corners.contains(.bottomRight) { cornerMask.insert(.layerMaxXMaxYCorner) }
+        self.layer.maskedCorners = cornerMask
     }
 }
