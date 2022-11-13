@@ -53,6 +53,7 @@ class SearchTableViewCell: UITableViewCell {
         favoriteButton.isHidden = true
         
     }
+    
     @IBAction func TappedFavoriteButton(_ sender: UIButton) {
         guard let row = row else { return }
         delegate?.didTappedFavoriteButton(row)

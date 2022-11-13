@@ -24,9 +24,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Iro_Man" translatesAutoresizingMaskIntoConstraints="NO" id="6nJ-Wd-akP">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="118"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
@@ -42,11 +39,6 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                         <blurEffect style="systemChromeMaterial"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </visualEffectView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haX-jy-AaL">
                                         <rect key="frame" x="8" y="8" width="304" height="29"/>
@@ -65,11 +57,6 @@
                                     <constraint firstItem="haX-jy-AaL" firstAttribute="top" secondItem="5BQ-82-fUS" secondAttribute="top" constant="8" id="uRz-Vu-Qjp"/>
                                     <constraint firstItem="CZH-gi-PZj" firstAttribute="height" secondItem="5BQ-82-fUS" secondAttribute="height" multiplier="1.01299" id="yIG-2T-Q3i"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -98,11 +85,6 @@
                     <constraint firstItem="2fx-F0-YD6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="f5h-E7-Z2B"/>
                     <constraint firstAttribute="bottom" secondItem="2fx-F0-YD6" secondAttribute="bottom" constant="10" id="rue-jz-Qbu"/>
                 </constraints>
-                <userDefinedRuntimeAttributes>
-                    <userDefinedRuntimeAttribute type="number" keyPath="cornerrRadius">
-                        <real key="value" value="10"/>
-                    </userDefinedRuntimeAttribute>
-                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>

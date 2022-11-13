@@ -7,129 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8869A3AD-C462-4817-85BC-D7F33B256209"
+            uuid = "9F8F7066-A407-480C-9EA8-71A5DDF1710C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MARVEL APP/Scenes/Details/Controller/DetailsViewController.swift"
+            filePath = "MARVEL APP/Networking/Base/BaseApi.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "ChangeFavoriteButtonImage(isFavorire:)"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "fetchData(target:responseClass:completion:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F7733DA2-7D62-4CE3-BFFD-28643A4E2222"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MARVEL APP/Scenes/Details/Controller/DetailsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "ChangeFavoriteButtonImage(isFavorire:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "366D3F2A-FD60-4017-BC12-BC34730FB4A2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MARVEL APP/Scenes/Details/Controller/DetailsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "ChangeFavoriteButtonImage(isFavorire:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0F14DC55-891D-40D9-80BC-C7E9B793B397"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MARVEL APP/Scenes/Details/Controller/DetailsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "ChangeFavoriteButtonImage(isFavorire:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F1685255-0092-45A5-A297-3E3238EBCE7C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MARVEL APP/Scenes/favourite/Controller/favouriteViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "916CBE9C-CD8D-40AC-8496-BB09A60B8A9A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MARVEL APP/Scenes/favourite/Controller/favouriteViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3C46430F-C01C-461D-9D63-FE0833D7D842"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MARVEL APP/Scenes/favourite/Controller/favouriteViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "56FCD10C-93EE-4A28-9C00-315E2B0D786C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MARVEL APP/Scenes/favourite/Controller/favouriteViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "favouriteListVc"
-            landmarkType = "21">
+            <Locations>
+               <Location
+                  uuid = "9F8F7066-A407-480C-9EA8-71A5DDF1710C - ffb7efee2d5630a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MARVEL_APP.BaseAPI.fetchData&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_0: Swift.Encodable&gt;(target: &#x3c4;_0_0, responseClass: &#x3c4;_1_0.Type, completion: (Swift.Result&lt;Swift.Optional&lt;MARVEL_APP.BasicDataResponse&lt;&#x3c4;_1_0&gt;&gt;, __C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MARVEL APP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohamedkhaledgomaa/Documents/Victory%20Link/DAY%202/MARVEL%20APP/MARVEL%20APP/Networking/Base/BaseApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "684">
+               </Location>
+               <Location
+                  uuid = "9F8F7066-A407-480C-9EA8-71A5DDF1710C - 8e1ef92bf534d8b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in MARVEL_APP.BaseAPI.fetchData&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_0: Swift.Encodable&gt;(target: &#x3c4;_0_0, responseClass: &#x3c4;_1_0.Type, completion: (Swift.Result&lt;Swift.Optional&lt;MARVEL_APP.BasicDataResponse&lt;&#x3c4;_1_0&gt;&gt;, __C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MARVEL APP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohamedkhaledgomaa/Documents/Victory%20Link/DAY%202/MARVEL%20APP/MARVEL%20APP/Networking/Base/BaseApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "252">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
