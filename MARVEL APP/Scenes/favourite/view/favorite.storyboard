@@ -40,7 +40,7 @@
                     <navigationItem key="navigationItem" title="Favorite character" id="LaM-wW-2k6"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="favouriteTabelView" destination="j4i-Dl-xTh" id="Y1v-eB-TXD"/>
+                        <outlet property="favouriteTabelView" destination="j4i-Dl-xTh" id="AVD-e1-xyP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QT4-oL-gu4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
