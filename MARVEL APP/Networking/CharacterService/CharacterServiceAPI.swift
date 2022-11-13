@@ -21,11 +21,14 @@ protocol CharactersList {
 //MARK:- Requests
 class CharactersServiceAPI: BaseAPI<CharactersService>, CharactersList {
     func getSearchResult(nameStartsWith: String, completion: @escaping (Result<BasicDataResponse<[Character]>?, NSError>) -> Void) {
-        ProgressHUD.show()
+       
+        if nameStartsWith.isEmpty == false{
         characterNumber += 10
-        self.fetchData(target: .getSearchResult(nameStartsWith: nameStartsWith), responseClass: [Character].self) {  (result) in
-            
-            completion(result)
+            ProgressHUD.show()
+            self.fetchData(target: .getSearchResult(nameStartsWith: nameStartsWith), responseClass: [Character].self) {  (result) in
+                
+                completion(result)
+            }
         }
     }
     

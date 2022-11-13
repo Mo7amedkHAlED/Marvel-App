@@ -30,6 +30,8 @@ class SearchViewController: UIViewController {
     // MARK: - Fetching Data From Api
     func fetchApiCharacterData(searchText: String) -> String {
         if searchText.isEmpty{
+            self.searchArrayData = []
+            characterNumber = 0
             return " "
         }else{
             guard let searchText = searchBar.text else { return " " }
