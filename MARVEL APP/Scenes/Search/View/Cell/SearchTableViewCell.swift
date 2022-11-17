@@ -38,7 +38,7 @@ class SearchTableViewCell: UITableViewCell {
         searchImage.roundCorners(.topLeft, radius: 15)
     }
     // MARK: - Make Configure Cell
-    func configureCell(_ favorite:CaractersModel){
+    func configureCell(_ favorite:CaractersModel) {
         let imagePath = "\(favorite.caractersImagePath).jpg"
         searchImage.kf.setImage(with: URL(string: "\(imagePath)"))
         searchLabel.text = favorite.caractersName
@@ -46,7 +46,7 @@ class SearchTableViewCell: UITableViewCell {
         
     }
     
-    func configureSearchCell(_ characterData:Character){
+    func configureSearchCell(_ characterData:CharactersListModel) {
         searchLabel.text = characterData.name
         let characterimage = "\(characterData.thumbnail.path).jpg"
         searchImage.kf.setImage(with: URL(string: "\(characterimage)"))

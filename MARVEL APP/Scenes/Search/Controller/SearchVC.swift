@@ -8,16 +8,16 @@
 import UIKit
 import ProgressHUD
 
-class SearchViewController: UIViewController {
+class SearchVC: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     // MARK: - Vars
-    var characterArrayData = [Character]()
-    var searchArrayData = [Character]()
-    let api: CharactersList = CharactersServiceAPI()
+    var characterArrayData = [CharactersListModel]()
+    var searchArrayData = [CharactersListModel]()
+    let api: UsersAPIProtocol = CharactersServiceAPI()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -29,11 +29,11 @@ class SearchViewController: UIViewController {
     }
     // MARK: - Fetching Data From Api
     func fetchApiCharacterData(searchText: String) -> String {
-        if searchText.isEmpty{
+        if searchText.isEmpty {
             self.searchArrayData = []
             characterNumber = 0
             return " "
-        }else{
+        } else {
             guard let searchText = searchBar.text else { return " " }
             api.getSearchResult(nameStartsWith: searchText) {  (result) in
                 switch result {
@@ -66,7 +66,7 @@ class SearchViewController: UIViewController {
 }
 
 // MARK: - Create Extension Table View Delegate & Data Source methods
-extension SearchViewController: TableView {
+extension SearchVC: TableView {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Details", bundle: nil)
@@ -93,7 +93,7 @@ extension SearchViewController: TableView {
 }
 
 // MARK: - Create Extension  UISearch Bar Delegate
-extension SearchViewController : UISearchBarDelegate {
+extension SearchVC : UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         fetchApiCharacterData(searchText: searchText)
@@ -102,7 +102,7 @@ extension SearchViewController : UISearchBarDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView == searchTableView {
             if limit <= 100 {
-                if (scrollView.contentOffset.y + scrollView.frame.size.height) >= (scrollView.contentSize.height){
+                if (scrollView.contentOffset.y + scrollView.frame.size.height) >= (scrollView.contentSize.height) {
                     fetchApiCharacterData(searchText: " ")
                 }
             }

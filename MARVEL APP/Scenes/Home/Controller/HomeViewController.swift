@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import Alamofire
-import Kingfisher
 import ProgressHUD
 
 class HomeViewController: UIViewController {
@@ -16,13 +14,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var TableView: UITableView!
     
     // MARK: - Vars
-    var charactersArray: [Character] = []
+    var charactersArray: [CharactersListModel] = []
     private var images : [String] = []
     
     // MARK: - Pagination Vars
-    var charactersPerPages = 10
-    var limit = 10
-    let api: CharactersList = CharactersServiceAPI()
+    let api: UsersAPIProtocol = CharactersServiceAPI()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -78,6 +74,7 @@ extension HomeViewController : TableView {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = TableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         cell.configureCell(tableData: charactersArray[indexPath.row])
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -87,7 +84,7 @@ extension HomeViewController : TableView {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView == TableView {
             if limit <= 100 {
-                if (scrollView.contentOffset.y + scrollView.frame.size.height) >= (scrollView.contentSize.height){
+                if (scrollView.contentOffset.y + scrollView.frame.size.height) >= (scrollView.contentSize.height) {
                     fetchApiCharacterData()
                 }
             }

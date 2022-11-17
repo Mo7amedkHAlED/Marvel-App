@@ -6,10 +6,9 @@
 //
 
 import UIKit
-import RealmSwift
 
 // MARK: - Home Characters MODEL
-struct Character: Codable{
+struct CharactersListModel: Codable {
     var id: Int
     var name: String
     var description: String

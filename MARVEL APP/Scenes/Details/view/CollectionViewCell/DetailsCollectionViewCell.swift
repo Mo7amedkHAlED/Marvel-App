@@ -19,7 +19,7 @@ class DetailsCollectionViewCell: UICollectionViewCell {
         
     }
     // MARK: - Make Configure Cell
-    func configureCell(collectionData: ResultData){
+    func configureCell(collectionData: CharacterDetailsModel) {
         charcterLabel.text = collectionData.title
         let characterimage = "\(collectionData.thumbnail.path).jpg"
         charcterImage.kf.setImage(with: URL(string: "\(characterimage)"))

@@ -7,10 +7,9 @@
 
 import UIKit
 import RealmSwift
-import Kingfisher
 import ProgressHUD
 
-class favouriteListVc: UIViewController {
+class FavouriteListVC: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var favouriteTabelView: UITableView!
@@ -38,13 +37,13 @@ class favouriteListVc: UIViewController {
     }
     
     // MARK: - Configure Table View
-    private func registerTableView(){
+    private func registerTableView() {
         favouriteTabelView.register(UINib(nibName: "SearchTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchTableViewCell")
     }
 }
 // MARK: - FavoriteButton protocol conformance
 //
-extension favouriteListVc : FavoritesView {
+extension FavouriteListVC : FavoritesView {
     //MARK: - protocol function
     public func didTappedFavoriteButton(_ row: Int) {
         do {
@@ -59,7 +58,7 @@ extension favouriteListVc : FavoritesView {
 }
 
 // MARK: - Create Extension Table View Delegate & Data Source methods
-extension favouriteListVc : TableView {
+extension FavouriteListVC : TableView {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favoriteCharactersList.count
     }

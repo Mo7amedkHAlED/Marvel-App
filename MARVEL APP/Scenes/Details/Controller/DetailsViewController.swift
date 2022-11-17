@@ -27,15 +27,15 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var detailsImage: UIImageView!
     
     // MARK: - Vars
-    var characterData  : Character?
-    var combisData: [ResultData] = []
-    var seriesData: [ResultData] = []
-    var storesData: [ResultData] = []
-    var eventsData: [ResultData] = []
-    var dataArray : [ResultData] = []
+    var characterData  : CharactersListModel?
+    var combisData: [CharacterDetailsModel] = []
+    var seriesData: [CharacterDetailsModel] = []
+    var storesData: [CharacterDetailsModel] = []
+    var eventsData: [CharacterDetailsModel] = []
+    var dataArray : [CharacterDetailsModel] = []
     let realm = try! Realm()
     var dataCharacter: Results<CaractersModel>!
-    let api: CharactersList = CharactersServiceAPI()
+    let api: UsersAPIProtocol = CharactersServiceAPI()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -53,7 +53,7 @@ class DetailsViewController: UIViewController {
     }
     
     // MARK: -  create method to get if character is favorite
-    func setInitimage(){
+    func setInitimage() {
         if dataCharacter.contains(where: {$0.caractersId == self.characterData?.id }) {
             UpdateFavoriteButtonImage(imageName: "favorite2")
         } else {
@@ -81,7 +81,7 @@ class DetailsViewController: UIViewController {
         favoriteButton.setImage(image, for: .normal)
     }
     
-    func fetchCharacter(collectionName: String, completion: @escaping ([ResultData]) -> Void ) {
+    func fetchCharacter(collectionName: String, completion: @escaping ([CharacterDetailsModel]) -> Void ) {
         guard let characterId = characterData?.id else{ return }
         api.getComics(id: characterId, name: collectionName) { (result) in
             switch result {
@@ -187,7 +187,7 @@ extension DetailsViewController : CollectionView {
             isHidden(array: eventsData, collection: eventCollectionView, labelname: eventLabel)
             return eventsData.count
         }
-        func isHidden(array: [ResultData], collection : UICollectionView, labelname : UILabel ) {
+        func isHidden(array: [CharacterDetailsModel], collection : UICollectionView, labelname : UILabel ) {
             if array.count == 0 {
                 collection.isHidden = true
                 labelname.isHidden = true
@@ -201,7 +201,7 @@ extension DetailsViewController : CollectionView {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailsCollectionViewCell", for: indexPath) as! DetailsCollectionViewCell
-        var result = [ResultData]()
+        var result = [CharacterDetailsModel]()
         if collectionView == comiceCollectionView {
             result = combisData
         }

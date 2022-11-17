@@ -13,19 +13,25 @@ import ProgressHUD
 var limit = 0
 var characterNumber = 0
 
-protocol CharactersList {
-    func getCharachters(completion: @escaping (Result<BasicDataResponse<[Character]>?, NSError>) -> Void)
-    func getComics(id : Int, name: String, completion: @escaping (Result<BasicDataResponse<[ResultData]>?, NSError>) -> Void)
-    func getSearchResult(nameStartsWith: String, completion: @escaping (Result<BasicDataResponse<[Character]>?, NSError>) -> Void)
+protocol UsersAPIProtocol {
+    
+    func getCharachters(completion: @escaping (Result<BasicDataResponse<[CharactersListModel]>?, NSError>) -> Void)
+    
+    func getComics(id : Int, name: String, completion: @escaping (Result<BasicDataResponse<[CharacterDetailsModel]>?, NSError>) -> Void)
+    
+    func getSearchResult(nameStartsWith: String, completion: @escaping (Result<BasicDataResponse<[CharactersListModel]>?, NSError>) -> Void)
+    
 }
+
 //MARK:- Requests
-class CharactersServiceAPI: BaseAPI<CharactersService>, CharactersList {
-    func getSearchResult(nameStartsWith: String, completion: @escaping (Result<BasicDataResponse<[Character]>?, NSError>) -> Void) {
-       
+class CharactersServiceAPI: BaseAPI<CharactersService>, UsersAPIProtocol {
+    //MARK:- Requests
+    func getSearchResult(nameStartsWith: String, completion: @escaping (Result<BasicDataResponse<[CharactersListModel]>?, NSError>) -> Void) {
+        
         if nameStartsWith.isEmpty == false{
-        characterNumber += 10
+            characterNumber += 10
             ProgressHUD.show()
-            self.fetchData(target: .getSearchResult(nameStartsWith: nameStartsWith), responseClass: [Character].self) {  (result) in
+            self.fetchData(target: .getSearchResult(nameStartsWith: nameStartsWith), responseClass: [CharactersListModel].self) {  (result) in
                 
                 completion(result)
             }
@@ -34,19 +40,19 @@ class CharactersServiceAPI: BaseAPI<CharactersService>, CharactersList {
     
     
     //MARK:- Requests
-    func getComics(id: Int, name: String, completion: @escaping (Result<BasicDataResponse<[ResultData]>?, NSError>) -> Void) {
+    func getComics(id: Int, name: String, completion: @escaping (Result<BasicDataResponse<[CharacterDetailsModel]>?, NSError>) -> Void) {
         ProgressHUD.show()
-        self.fetchData(target: .getCollections(characterID: id,collectionName: name), responseClass: [ResultData].self) { (result) in
+        self.fetchData(target: .getCollections(characterID: id,collectionName: name), responseClass: [CharacterDetailsModel].self) { (result) in
             
             completion(result)
         }
     }
     //MARK:- Requests
     
-    func getCharachters(completion: @escaping (Result<BasicDataResponse<[Character]>?, NSError>) -> Void) {
+    func getCharachters(completion: @escaping (Result<BasicDataResponse<[CharactersListModel]>?, NSError>) -> Void) {
         ProgressHUD.show()
         limit += 10
-        self.fetchData(target:.getCharachters, responseClass: [Character].self) { (result) in
+        self.fetchData(target:.getCharachters, responseClass: [CharactersListModel].self) { (result) in
             
             completion(result)
         }

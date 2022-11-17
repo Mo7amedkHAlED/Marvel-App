@@ -24,7 +24,7 @@ class TableViewCell: UITableViewCell {
         blurView.roundCorners(.bottomRight, radius: 10)
         blurView.clipsToBounds = true
     }
-    func configureCell(tableData: Character){
+    func configureCell(tableData: CharactersListModel) {
         let charactername = tableData.name
         characterName.text = charactername
         let characterimage = "\(tableData.thumbnail.path).jpg"
