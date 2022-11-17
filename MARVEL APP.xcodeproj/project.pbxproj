@@ -28,6 +28,7 @@
 		7F95983929080088005DAD83 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F95983729080088005DAD83 /* Home.storyboard */; };
 		7F95983B29080089005DAD83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F95983A29080089005DAD83 /* Assets.xcassets */; };
 		7F95983E29080089005DAD83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F95983C29080089005DAD83 /* LaunchScreen.storyboard */; };
+		7F9870D62926301F0094FA82 /* Secret.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 7F9870D52926301F0094FA82 /* Secret.xcconfig */; };
 		7FE9E0B4290FDC870018AB5A /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE9E0B3290FDC870018AB5A /* CollectionViewModel.swift */; };
 		7FEA04CF29096F6F008334FF /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FEA04CE29096F6F008334FF /* Search.storyboard */; };
 		7FEA04D329096FA4008334FF /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEA04D229096FA4008334FF /* SearchVC.swift */; };
@@ -67,6 +68,7 @@
 		7F95983A29080089005DAD83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F95983D29080089005DAD83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F95983F29080089005DAD83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F9870D52926301F0094FA82 /* Secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret.xcconfig; sourceTree = "<group>"; };
 		7FE9E0B3290FDC870018AB5A /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		7FEA04CE29096F6F008334FF /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		7FEA04D229096FA4008334FF /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
@@ -77,7 +79,6 @@
 		7FEF0450291A7C9D00F8E20F /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		7FEF045A291A9BA700F8E20F /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
 		7FEF7DFB29193780002BDE4B /* favorite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = favorite.storyboard; sourceTree = "<group>"; };
-		929EB5692913D624003BE00E /* Secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret.xcconfig; sourceTree = "<group>"; };
 		D4913AF0792195F46DE16841 /* Pods-MARVEL APP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MARVEL APP.release.xcconfig"; path = "Target Support Files/Pods-MARVEL APP/Pods-MARVEL APP.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -277,7 +278,7 @@
 		7F95982529080088005DAD83 = {
 			isa = PBXGroup;
 			children = (
-				929EB5692913D624003BE00E /* Secret.xcconfig */,
+				7F9870D52926301F0094FA82 /* Secret.xcconfig */,
 				7F95983029080088005DAD83 /* MARVEL APP */,
 				7F95982F29080088005DAD83 /* Products */,
 				4499D5BA5F257AA9BA059BBD /* Pods */,
@@ -434,6 +435,7 @@
 				7F04CD2F2909DFDA00AB3D1A /* DetailsCollectionViewCell.xib in Resources */,
 				7F899A1029080BD20038BAE6 /* TableViewCell.xib in Resources */,
 				7F95983B29080089005DAD83 /* Assets.xcassets in Resources */,
+				7F9870D62926301F0094FA82 /* Secret.xcconfig in Resources */,
 				7F95983929080088005DAD83 /* Home.storyboard in Resources */,
 				7FEA04CF29096F6F008334FF /* Search.storyboard in Resources */,
 				7FEA04D7290973AF008334FF /* SearchTableViewCell.xib in Resources */,
@@ -538,7 +540,6 @@
 /* Begin XCBuildConfiguration section */
 		7F95984029080089005DAD83 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 929EB5692913D624003BE00E /* Secret.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -599,7 +600,6 @@
 		};
 		7F95984129080089005DAD83 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 929EB5692913D624003BE00E /* Secret.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
