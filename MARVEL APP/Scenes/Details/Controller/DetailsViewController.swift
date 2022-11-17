@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import CryptoKit
-import Alamofire
 import RealmSwift
+import ProgressHUD
 
 class DetailsViewController: UIViewController {
     
@@ -28,36 +27,33 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var detailsImage: UIImageView!
     
     // MARK: - Vars
-    var publicKey = Configurations.getValue(for: "Public_Key")
-    var privateKey = Configurations.getValue(for: "Private_Key")
-    var characterData  : Character?
-    var combisData: [ResultData] = []
-    var seriesData: [ResultData] = []
-    var storesData: [ResultData] = []
-    var eventsData: [ResultData] = []
-    var dataArray : [ResultData] = []
+    var characterData  : CharactersListModel?
+    var combisData: [CharacterDetailsModel] = []
+    var seriesData: [CharacterDetailsModel] = []
+    var storesData: [CharacterDetailsModel] = []
+    var eventsData: [CharacterDetailsModel] = []
+    var dataArray : [CharacterDetailsModel] = []
     let realm = try! Realm()
     var dataCharacter: Results<CaractersModel>!
+    let api: UsersAPIProtocol = CharactersServiceAPI()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         registerCollectionView()
-        initializationCollectionView()
         initializationView()
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        initializationCollectionView()
         fetchCaracterListDB()
         setInitimage()
-        
     }
     
     // MARK: -  create method to get if character is favorite
-    func setInitimage(){
+    func setInitimage() {
         if dataCharacter.contains(where: {$0.caractersId == self.characterData?.id }) {
             UpdateFavoriteButtonImage(imageName: "favorite2")
         } else {
@@ -73,9 +69,9 @@ class DetailsViewController: UIViewController {
     // MARK: - Change Favorite Button Image
     func ChangeFavoriteButtonImage(isFavorire: Bool) {
         if isFavorire == true {
-           UpdateFavoriteButtonImage(imageName: "favorite2")
+            UpdateFavoriteButtonImage(imageName: "favorite2")
         } else {
-           UpdateFavoriteButtonImage(imageName: "unfavorite")
+            UpdateFavoriteButtonImage(imageName: "unfavorite")
         }
     }
     
@@ -85,6 +81,21 @@ class DetailsViewController: UIViewController {
         favoriteButton.setImage(image, for: .normal)
     }
     
+    func fetchCharacter(collectionName: String, completion: @escaping ([CharacterDetailsModel]) -> Void ) {
+        guard let characterId = characterData?.id else{ return }
+        api.getComics(id: characterId, name: collectionName) { (result) in
+            switch result {
+            case .success(let model):
+                ProgressHUD.dismiss()
+                guard let result = model?.results else { return }
+                self.dataArray = result
+                completion(self.dataArray)
+                self.comiceCollectionView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
     // MARK: -  Initialization View
     func initializationView() {
         backButton.layer.cornerRadius = 20
@@ -92,7 +103,7 @@ class DetailsViewController: UIViewController {
         characterName.text = characterData?.name
         let characterimage = "\(characterData?.thumbnail.path ?? " ").jpg"
         detailsImage.kf.setImage(with: URL(string: "\(characterimage)"))
-        guard let descriptionText = characterData?.description else {return}
+        guard let descriptionText = characterData?.description else { return }
         desLabel.text = descriptionText
     }
     // MARK: - InitializationCollectionView
@@ -115,38 +126,10 @@ class DetailsViewController: UIViewController {
             self.eventCollectionView.reloadData()
         }
     }
-    
-    // MARK: - Fetching Data From Api
-    func fetchCharacter(collectionName: String, completion: @escaping ([ResultData]) -> Void ) {
-        let ts = String(Date().timeIntervalSince1970)
-        let hash = MD5(string: "\(ts)\(privateKey)\(publicKey)")
-        guard let characterId = characterData?.id else{return}
-        guard let url =  URL(string: "https://gateway.marvel.com:443/v1/public/characters/\(characterId)/\(collectionName)?ts=\(ts)&hash=\(hash)&apikey=\(publicKey)") else {return}
-        AF.request(url, method: .get,encoding: JSONEncoding.default).responseDecodable(of: APICollectionResult.self) { [self] respone in
-            switch respone.result{
-            case.success(let model):
-                self.dataArray = model.data.results
-                completion(dataArray)
-            case.failure(let error):
-                print(error.localizedDescription)
-                
-            }
-        }
-        
-    }
-    //MARK: - Get MD5 Method
-    func MD5(string: String) -> String {
-        let digest = Insecure.MD5.hash(data: string.data(using: .utf8) ?? Data())
-        
-        return digest.map {
-            String(format: "%02hhx", $0)
-        }.joined()
-        
-    }
     // MARK: - Set Image For Favorite Button
     @IBAction func favoriteButton(_ sender: UIButton) {
         if let object = dataCharacter.filter({ $0.caractersId == self.characterData?.id }).first {
-           UpdateFavoriteButtonImage(imageName: "unfavorite")
+            UpdateFavoriteButtonImage(imageName: "unfavorite")
             do {
                 try realm.write {
                     realm.delete(object)
@@ -173,7 +156,7 @@ class DetailsViewController: UIViewController {
         }
     }
     // MARK: - Configure CollectionView
-    func registerCollectionView(){
+    func registerCollectionView() {
         comiceCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
         
         storiesCollectionView.register(UINib(nibName: "DetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCollectionViewCell")
@@ -189,7 +172,7 @@ class DetailsViewController: UIViewController {
     
 }
 // MARK: -Create Extension CollectionView DataSource & Delegate Method
-extension DetailsViewController : CollectionView{
+extension DetailsViewController : CollectionView {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == comiceCollectionView {
             isHidden(array: combisData, collection: comiceCollectionView, labelname: comiceLabel)
@@ -198,13 +181,13 @@ extension DetailsViewController : CollectionView{
             isHidden(array: seriesData, collection: seriesCollectionView, labelname: seriesLabel)
             return seriesData.count
         } else if collectionView == storiesCollectionView {
-           isHidden(array: seriesData, collection: storiesCollectionView, labelname: stoiesLabel)
+            isHidden(array: seriesData, collection: storiesCollectionView, labelname: stoiesLabel)
             return storesData.count
         } else {
-           isHidden(array: eventsData, collection: eventCollectionView, labelname: eventLabel)
+            isHidden(array: eventsData, collection: eventCollectionView, labelname: eventLabel)
             return eventsData.count
         }
-        func isHidden(array: [ResultData], collection : UICollectionView, labelname : UILabel ){
+        func isHidden(array: [CharacterDetailsModel], collection : UICollectionView, labelname : UILabel ) {
             if array.count == 0 {
                 collection.isHidden = true
                 labelname.isHidden = true
@@ -218,7 +201,7 @@ extension DetailsViewController : CollectionView{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailsCollectionViewCell", for: indexPath) as! DetailsCollectionViewCell
-        var result = [ResultData]()
+        var result = [CharacterDetailsModel]()
         if collectionView == comiceCollectionView {
             result = combisData
         }

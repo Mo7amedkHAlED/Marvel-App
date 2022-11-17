@@ -7,29 +7,18 @@
 
 import Foundation
 // MARK: -  create Model To get Data from API
-struct APICollectionResult : Codable{
-    let data: APICollectionData
-}
-struct APICollectionData: Codable{
-    let count: Int
-    let results: [ResultData]
-}
-
-struct ResultData: Codable {
+struct CharacterDetailsModel: Codable {
     let id: Int
     let title: String
     let thumbnail: ThumbnailPath
 }
+
 struct ThumbnailPath: Codable {
     let path: String
-    let thumbnailExtension: ExtensionImagge
+    let thumbnailExtension: String
 
     enum CodingKeys: String, CodingKey {
         case path
         case thumbnailExtension = "extension"
     }
-}
-enum ExtensionImagge: String, Codable {
-    case gif = "gif"
-    case jpg = "jpg"
 }

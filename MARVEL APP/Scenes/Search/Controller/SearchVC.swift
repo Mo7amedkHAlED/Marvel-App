@@ -6,26 +6,18 @@
 //
 
 import UIKit
-import CryptoKit
-import Alamofire
-import Kingfisher
 import ProgressHUD
 
-class SearchViewController: UIViewController {
+class SearchVC: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     // MARK: - Vars
-    var characterArrayData = [Character]()
-    var searchArrayData = [Character]()
-    var charactersPerPages = 10
-    var limit = 10
-    //TODO: - Use the constant keys from the config file and refactor them to be constants instead of variables since
-    // its value will not be changed during the runtime Also avoid to deifne unwanted global variable since it's only used in
-    var publicKey = "01973c54d87ab24faec3795d522b42b1"
-    var privateKey = "b79e717f216cf6b9f154732ed97c1b69bd8586f8"
+    var characterArrayData = [CharactersListModel]()
+    var searchArrayData = [CharactersListModel]()
+    let api: UsersAPIProtocol = CharactersServiceAPI()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -35,35 +27,27 @@ class SearchViewController: UIViewController {
         registerTableView()
         
     }
-    //TODO: - Move this method to networking class containing all api requests
     // MARK: - Fetching Data From Api
-    func fetchApiCharacterData(searchText: String) {
-        let ts = String(Date().timeIntervalSince1970)
-        let hash = MD5(string: "\(ts)\(privateKey)\(publicKey)")
-        guard let searchText = searchBar.text else { return}
-        guard let url =  URL(string: "https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=\(searchText)&limit=\(limit)&ts=\(ts)&hash=\(hash)&apikey=\(publicKey)") else { return}
-        AF.request(url, method: .get,encoding: JSONEncoding.default).responseDecodable(of: APIResult.self) { [self] respone in
-            switch respone.result{
-            case.success(let data):
-                self.searchArrayData = data.data.results
-                self.limit += 10
-                self.searchTableView.reloadData()
-            case.failure(let error):
-                print(error.localizedDescription)
+    func fetchApiCharacterData(searchText: String) -> String {
+        if searchText.isEmpty {
+            self.searchArrayData = []
+            characterNumber = 0
+            return " "
+        } else {
+            guard let searchText = searchBar.text else { return " " }
+            api.getSearchResult(nameStartsWith: searchText) {  (result) in
+                switch result {
+                case.success(let data):
+                    ProgressHUD.dismiss()
+                    self.searchArrayData = data?.results ?? []
+                    self.searchTableView.reloadData()
+                case.failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
+        return " "
     }
-    //TODO: - Refactor this to be an extenison on all Strings data types
-    //MARK: - Get MD5 Method
-    func MD5(string: String) -> String {
-        let digest = Insecure.MD5.hash(data: string.data(using: .utf8) ?? Data())
-
-        return digest.map {
-            String(format: "%02hhx", $0)
-        }.joined()
-        
-    }
-    
     // MARK: -  Search Bar Delegate
     func searchBarSetUp() {
         searchBar.delegate = self
@@ -82,7 +66,7 @@ class SearchViewController: UIViewController {
 }
 
 // MARK: - Create Extension Table View Delegate & Data Source methods
-extension SearchViewController: TableView {
+extension SearchVC: TableView {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Details", bundle: nil)
@@ -101,7 +85,7 @@ extension SearchViewController: TableView {
         cell.configureSearchCell(searchArrayData[indexPath.row])
         return cell
     }
-        
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
@@ -109,16 +93,16 @@ extension SearchViewController: TableView {
 }
 
 // MARK: - Create Extension  UISearch Bar Delegate
-extension SearchViewController : UISearchBarDelegate {
+extension SearchVC : UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         fetchApiCharacterData(searchText: searchText)
         searchTableView.reloadData()
-       }
+    }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView == searchTableView {
             if limit <= 100 {
-                if (scrollView.contentOffset.y + scrollView.frame.size.height) >= (scrollView.contentSize.height){
+                if (scrollView.contentOffset.y + scrollView.frame.size.height) >= (scrollView.contentSize.height) {
                     fetchApiCharacterData(searchText: " ")
                 }
             }

@@ -6,9 +6,6 @@
 //
 
 import UIKit
-import CryptoKit
-import Alamofire
-import Kingfisher
 import ProgressHUD
 
 class HomeViewController: UIViewController {
@@ -17,60 +14,35 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var TableView: UITableView!
     
     // MARK: - Vars
-    var charactersArray: [Character] = []
+    var charactersArray: [CharactersListModel] = []
     private var images : [String] = []
-    var publicKey = Configurations.getValue(for: "Public_Key")
-    var privateKey = Configurations.getValue(for: "Private_Key")
     
     // MARK: - Pagination Vars
-    var charactersPerPages = 10
-    var limit = 10
+    let api: UsersAPIProtocol = CharactersServiceAPI()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        fetchApiCharacterData(limit: limit)
+        fetchApiCharacterData()
         registerCollectionView()
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "Marvel"))
     }
-    
-    // MARK: - Fetching Data From Api
-    func fetchApiCharacterData(limit: Int) {
-        let ts = String(Date().timeIntervalSince1970)
-        let hash = MD5(string: "\(ts)\(privateKey)\(publicKey)")
-        guard let url =  URL(string: "https://gateway.marvel.com:443/v1/public/characters?limit=\(limit)&ts=\(ts)&hash=\(hash)&apikey=\(publicKey)") else { return }
-        ProgressHUD.show()
-        AF.request(url, method: .get,encoding: JSONEncoding.default).responseDecodable(of: APIResult.self) { [self] respone in
-            switch respone.result{
-            case.success(let character):
-                self.charactersArray = character.data.results
-                self.limit += 10
+    func fetchApiCharacterData() {
+        api.getCharachters { (result) in
+            switch result {
+            case .success(let response):
+                guard let result = response?.results else { return }
+                self.charactersArray = result
                 self.TableView.reloadData()
                 ProgressHUD.dismiss()
-            case.failure(let error):
+            case .failure(let error):
                 print(error.localizedDescription)
-                ProgressHUD.showError()
-                
             }
         }
     }
-    //MARK: - Get MD5 Method
-    func MD5(string: String) -> String {
-        let digest = Insecure.MD5.hash(data: string.data(using: .utf8) ?? Data())
-        
-        return digest.map {
-            String(format: "%02hhx", $0)
-        }.joined()
-        
-    }
-    
-    // MARK: - Configure CollectionView
+// MARK: - Configure CollectionView
     func registerCollectionView() {
         TableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
-        TableView.delegate = self
-        TableView.dataSource = self
-        
     }
     
     // MARK: - IBAction
@@ -101,11 +73,8 @@ extension HomeViewController : TableView {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = TableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        let characterName = charactersArray[indexPath.row].name
-        cell.characterName.text = characterName
-        var characterimage = charactersArray[indexPath.row].thumbnail.path
-        characterimage += ".jpg"
-        cell.characterHomeImage.kf.setImage(with: URL(string: "\(characterimage)"))
+        cell.configureCell(tableData: charactersArray[indexPath.row])
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -115,11 +84,10 @@ extension HomeViewController : TableView {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView == TableView {
             if limit <= 100 {
-                if (scrollView.contentOffset.y + scrollView.frame.size.height) >= (scrollView.contentSize.height){
-                    fetchApiCharacterData(limit: limit)
+                if (scrollView.contentOffset.y + scrollView.frame.size.height) >= (scrollView.contentSize.height) {
+                    fetchApiCharacterData()
                 }
             }
         }
     }
-    
 }
