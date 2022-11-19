@@ -7,8 +7,88 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9F8F7066-A407-480C-9EA8-71A5DDF1710C"
-            shouldBeEnabled = "Yes"
+            uuid = "3B55D174-ED64-4F91-950C-6282FF04E6A0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MARVEL APP/Networking/CharacterService/CharactersService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "path"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4538C0DC-D8EF-4E19-8B72-B9CF155A9F87"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MARVEL APP/Networking/CharacterService/CharacterServiceAPI.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "getSearchResult(nameStartsWith:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4538C0DC-D8EF-4E19-8B72-B9CF155A9F87 - 565797190f4c9c89"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MARVEL_APP.CharactersServiceAPI.getSearchResult(nameStartsWith: Swift.String, completion: (Swift.Result&lt;Swift.Optional&lt;MARVEL_APP.BasicDataResponse&lt;Swift.Array&lt;MARVEL_APP.CharactersListModel&gt;&gt;&gt;, __C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MARVEL APP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohamedkhaledgomaa/Desktop/MARVEL%20APP%20MVVM/MARVEL%20APP/Networking/CharacterService/CharacterServiceAPI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "188">
+               </Location>
+               <Location
+                  uuid = "4538C0DC-D8EF-4E19-8B72-B9CF155A9F87 - 71ac8f326a4593c8"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;MARVEL_APP.BasicDataResponse&lt;Swift.Array&lt;MARVEL_APP.CharactersListModel&gt;&gt;&gt;, __C.NSError&gt;) -&gt; () in MARVEL_APP.CharactersServiceAPI.getSearchResult(nameStartsWith: Swift.String, completion: (Swift.Result&lt;Swift.Optional&lt;MARVEL_APP.BasicDataResponse&lt;Swift.Array&lt;MARVEL_APP.CharactersListModel&gt;&gt;&gt;, __C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MARVEL APP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohamedkhaledgomaa/Desktop/MARVEL%20APP%20MVVM/MARVEL%20APP/Networking/CharacterService/CharacterServiceAPI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F5C2D786-CC20-4538-AA32-D3B36A6CDF18"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MARVEL APP/Networking/CharacterService/CharacterServiceAPI.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "getSearchResult(nameStartsWith:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FBF93F8C-89E1-4991-AC8C-79662502F1A4"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MARVEL APP/Networking/Base/BaseApi.swift"
@@ -20,14 +100,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "9F8F7066-A407-480C-9EA8-71A5DDF1710C - ffb7efee2d5630a5"
-                  shouldBeEnabled = "Yes"
+                  uuid = "FBF93F8C-89E1-4991-AC8C-79662502F1A4 - e3c73b92b417ef70"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "MARVEL_APP.BaseAPI.fetchData&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_0: Swift.Encodable&gt;(target: &#x3c4;_0_0, responseClass: &#x3c4;_1_0.Type, completion: (Swift.Result&lt;Swift.Optional&lt;MARVEL_APP.BasicDataResponse&lt;&#x3c4;_1_0&gt;&gt;, __C.NSError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "MARVEL APP"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohamedkhaledgomaa/Documents/Victory%20Link/DAY%202/MARVEL%20APP/MARVEL%20APP/Networking/Base/BaseApi.swift"
+                  urlString = "file:///Users/mohamedkhaledgomaa/Desktop/MARVEL%20APP%20MVVM/MARVEL%20APP/Networking/Base/BaseApi.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "17"
@@ -35,14 +115,14 @@
                   offsetFromSymbolStart = "684">
                </Location>
                <Location
-                  uuid = "9F8F7066-A407-480C-9EA8-71A5DDF1710C - 8e1ef92bf534d8b3"
-                  shouldBeEnabled = "Yes"
+                  uuid = "FBF93F8C-89E1-4991-AC8C-79662502F1A4 - 926e2d576c750760"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in MARVEL_APP.BaseAPI.fetchData&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_0: Swift.Encodable&gt;(target: &#x3c4;_0_0, responseClass: &#x3c4;_1_0.Type, completion: (Swift.Result&lt;Swift.Optional&lt;MARVEL_APP.BasicDataResponse&lt;&#x3c4;_1_0&gt;&gt;, __C.NSError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "MARVEL APP"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohamedkhaledgomaa/Documents/Victory%20Link/DAY%202/MARVEL%20APP/MARVEL%20APP/Networking/Base/BaseApi.swift"
+                  urlString = "file:///Users/mohamedkhaledgomaa/Desktop/MARVEL%20APP%20MVVM/MARVEL%20APP/Networking/Base/BaseApi.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
@@ -50,6 +130,22 @@
                   offsetFromSymbolStart = "252">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "45DCA83C-0801-4255-A352-885DB2AC8D70"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MARVEL APP/Scenes/Search/ViewModel/SearchViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "fetchApiCharacterData(searchText:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

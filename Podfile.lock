@@ -1,34 +1,56 @@
 PODS:
   - Alamofire (5.6.2)
+  - CleanyModal (1.0.3)
   - Kingfisher (7.4.1)
+  - MBProgressHUD (1.1.0)
   - ProgressHUD (13.6)
   - Realm (10.32.3):
     - Realm/Headers (= 10.32.3)
   - Realm/Headers (10.32.3)
   - RealmSwift (10.32.3):
     - Realm (= 10.32.3)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
 
 DEPENDENCIES:
   - Alamofire
+  - CleanyModal
   - Kingfisher
+  - MBProgressHUD (~> 1.1.0)
   - ProgressHUD
   - RealmSwift (~> 10)
+  - RxCocoa
+  - RxSwift
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - CleanyModal
     - Kingfisher
+    - MBProgressHUD
     - ProgressHUD
     - Realm
     - RealmSwift
+    - RxCocoa
+    - RxRelay
+    - RxSwift
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  CleanyModal: 5e5fece5b1de97b47ea091f6390ec2b16bfa2f20
   Kingfisher: cd762a593a61b2fbecf7645c00f9a801a3ebfc9c
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   ProgressHUD: 4bdaa0d2ddf676b23324b199f9facffb5c3a1620
   Realm: fdf6732924dc5e69e30e0db2c11e869f92b53f3d
   RealmSwift: 7c181da8fa1c2fe613656a77c198d6a3dc3879a1
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
 
-PODFILE CHECKSUM: d0415e2fb1fa005e839c6d6b36cb4e155b2a84d2
+PODFILE CHECKSUM: 11e1a20824010098ac289f5b925e977209496035
 
 COCOAPODS: 1.11.3

@@ -38,9 +38,6 @@
                                         <color key="tintColor" red="0.8078432083" green="0.0" blue="0.14458908479999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
-                                        <connections>
-                                            <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VAm-PT-gt4"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1058823466" green="0.1058823466" blue="0.1058823466" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -55,10 +52,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Aa-Aa-01K">
                                 <rect key="frame" x="8" y="108" width="359" height="510"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="CEr-ni-lPH"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4mq-2D-e6E"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -79,6 +72,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="TableView" destination="8Aa-Aa-01K" id="1Hq-5V-3D4"/>
+                        <outlet property="searchButton" destination="EJd-Wd-Vah" id="EM1-PV-HBB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
