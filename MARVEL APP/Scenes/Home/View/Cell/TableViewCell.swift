@@ -19,11 +19,13 @@ class TableViewCell: UITableViewCell {
         super.awakeFromNib()
         roundCorners()
     }
+    // MARK: - Make Round Corners
     func roundCorners() {
         blurView.roundCorners(.bottomLeft, radius: 10)
         blurView.roundCorners(.bottomRight, radius: 10)
         blurView.clipsToBounds = true
     }
+    // MARK: - Make Configure Cell
     func configureCell(tableData: CharactersListModel) {
         let charactername = tableData.name
         characterName.text = charactername

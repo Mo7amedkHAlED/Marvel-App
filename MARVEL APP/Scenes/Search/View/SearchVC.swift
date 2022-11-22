@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-class SearchVC: UIViewController, UIScrollViewDelegate {
+class SearchVC: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var searchTableView: UITableView!
@@ -25,6 +25,7 @@ class SearchVC: UIViewController, UIScrollViewDelegate {
         subscribeToCancelButton()
         registerTableView()
         subscribeToResponse()
+        subscribeToBranchSelection()
         subscribeToLoading()
         searchTableView.rx.setDelegate(self).disposed(by: disposeBag)
         
@@ -44,7 +45,21 @@ class SearchVC: UIViewController, UIScrollViewDelegate {
             }
         }).disposed(by: disposeBag)
     }
-    // MARK: - Binding TAbel View Cell with Model
+    // MARK: - Create Method To Know Selection Cell
+    func subscribeToBranchSelection() {
+        Observable
+            .zip(searchTableView.rx.itemSelected, searchTableView.rx.modelSelected(CharactersListModel.self))
+            .bind { [weak self] selectedIndex, data in
+                guard let self = self else { return }
+                let storyboard = UIStoryboard(name: "Details", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+                vc.characterData = data
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true)
+        }
+        .disposed(by: disposeBag)
+    }
+    // MARK: - Binding Tabel View Cell with Model
     func subscribeToResponse() {
         self.searchViewModel.searchModelObservable
             .bind(to: self.searchTableView

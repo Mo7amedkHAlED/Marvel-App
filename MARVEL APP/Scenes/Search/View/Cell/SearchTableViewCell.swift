@@ -45,7 +45,7 @@ class SearchTableViewCell: UITableViewCell {
         favoriteButton.setImage(UIImage(named: "favorite2"), for: .normal)
         
     }
-    
+    // MARK: - Make Configure Cell
     func configureSearchCell(_ characterData:CharactersListModel) {
         searchLabel.text = characterData.name
         let characterimage = "\(characterData.thumbnail.path).jpg"
@@ -53,7 +53,7 @@ class SearchTableViewCell: UITableViewCell {
         favoriteButton.isHidden = true
         
     }
-    
+    // MARK: - craete Method to observable when click button by delegate
     @IBAction func TappedFavoriteButton(_ sender: UIButton) {
         guard let row = row else { return }
         delegate?.didTappedFavoriteButton(row)
